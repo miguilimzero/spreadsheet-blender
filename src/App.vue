@@ -1,31 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+    <div class="bg-gray-50 mx-auto px-4 flex items-center justify-center h-screen">
+        <!-- Exception ~ History Screen -->
+        <HistoryScreen v-if="historyScreen" />
 
-  <p class="text-center text-red-500">
-    OOOOOOOOOOOI
-  </p>
+        <!-- First Screen Condition -->
+        <FirstSelectScreen v-else-if="tableFiles.length === 0" />
 
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+        <!-- Second Screen Condition -->
+        <EditingScreen v-else-if="resultFile === ''" />
+
+        <!-- Third Screen Condition -->
+        <FinishedScreen v-else />    
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FirstSelectScreen from './screens/FirstSelectScreen'
+import EditingScreen from './screens/EditingScreen'
+import FinishedScreen from './screens/FinishedScreen'
+
+import HistoryScreen from './screens/HistoryScreen'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    name: 'App',
+
+    data: () => ({
+        historyScreen: false,
+        tableFiles: [],
+        resultFile: '',
+        modelValue: '',
+        language: 'US',
+    }),
+
+    components: {
+        FirstSelectScreen, EditingScreen, FinishedScreen, HistoryScreen,
+    }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
