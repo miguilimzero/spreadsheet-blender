@@ -2,7 +2,10 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
+  content: [
+    './src/App.vue',
+    './src/**/*.vue',
+  ],
   theme: {
     extend: {
       fontFamily: {
