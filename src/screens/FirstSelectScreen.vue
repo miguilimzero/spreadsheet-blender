@@ -5,14 +5,14 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v20c0 4.418 7.163 8 16 8 1.381 0 2.721-.087 4-.252M8 14c0 4.418 7.163 8 16 8s16-3.582 16-8M8 14c0-4.418 7.163-8 16-8s16 3.582 16 8m0 0v14m0-4c0 4.418-7.163 8-16 8S8 28.418 8 24m32 10v6m0 0v6m0-6h6m-6 0h-6" />
             </svg>
 
-            <span class="mt-2 block text-sm font-medium text-gray-900"> Select a new Excel Table/CSV File </span>
+            <span class="mt-2 block text-sm font-medium text-gray-900"> Select a new Spreadsheet Table </span>
         </button>
     </div>
 
     <TopRightButtonGroup>
         <TButtonWhite>
-            <UsaFlag class="w-5 h-5 mr-2" v-if="$parent.language === 'US'" />
-            <BrazilFlag class="w-5 h-5 mr-2" v-if="$parent.language === 'BR'" />
+            <UsaFlag class="w-5 h-5 mr-2" v-if="$root.language === 'US'" />
+            <BrazilFlag class="w-5 h-5 mr-2" v-if="$root.language === 'BR'" />
 
             Language
         </TButtonWhite>
