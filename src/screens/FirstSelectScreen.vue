@@ -40,8 +40,11 @@ export default {
 	methods: {
 		selectFirstSpreedsheet() {
 			this.$root.tableFiles = ['x']
+			this.$root.projectName = 'Untitled Project'
 
-			this.$root.appendProjectToHistory(this.$root.tableFiles, this.$root.resultFile)
+			const historyHash = this.$root.appendProjectToHistory(this.$root.projectName, this.$root.tableFiles, this.$root.resultFile)
+
+			this.$root.historyHash = historyHash
 		},
 	},
 }

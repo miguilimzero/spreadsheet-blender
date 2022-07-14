@@ -1,35 +1,45 @@
 <template>
 	<div class="block w-full space-y-2">
-		<TCard v-for="project in historyList" :key="project.historyHash">
-			<div class="flex justify-between px-8 py-6">
-				<div class="block">
-					<div class="mb-4 flex items-center space-x-2">
-						<h3 class="font-bold">{{ project.projectName }}</h3>
-						<p class="font-medium">-</p>
-						<p class="font-medium">{{ project.lastEditAt.toLocaleString() }}</p>
-					</div>
+		<div class="space-y-8">
+			<TCard v-for="project in $root.historyList" :key="project.historyHash">
+				<div class="flex justify-between px-8 py-6">
+					<div class="block">
+						<div class="mb-4 flex items-center space-x-2">
+							<h3 class="font-bold">{{ project.name }}</h3>
+							<p class="font-medium">-</p>
+							<p class="font-medium">{{ project.lastEditAt.toLocaleString() }}</p>
+						</div>
 
-					<p class="mb-1">Source files ({{ project.tableFiles.length }} tables):</p>
-					<div class="mb-4 grid space-y-2">
-						<TBadge class="flex items-center"  size="sm" v-for="fileName in project.tableFiles" :key="fileName">
-							<TableIcon class="w-5 h-5 mr-1" /> {{ fileName }}
+						<p class="mb-1">Source files ({{ project.tableFiles.length }} tables):</p>
+						<div class="mb-4 grid space-y-2">
+							<TBadge class="flex items-center" size="sm" v-for="fileName in project.tableFiles" :key="fileName">
+								<TableIcon class="mr-1 h-5 w-5" /> {{ fileName }}
+							</TBadge>
+						</div>
+
+						<p class="mb-1">Destination file:</p>
+						<TBadge class="flex items-center" color="gray" v-if="project.resultFile === ''">
+							<ArchiveIcon class="mr-1 h-5 w-5" /> No result file generated yet!
 						</TBadge>
+						<TBadge class="flex items-center" v-else> <TableIcon class="mr-1 h-5 w-5" /> {{ project.resultFile }} </TBadge>
 					</div>
 
-					<p class="mb-1">Destination file:</p>
-					<TBadge class="flex items-center" color="gray" v-if="project.resultFile === ''"> <ArchiveIcon class="w-5 h-5 mr-1" /> No result file generated yet! </TBadge>
-					<TBadge class="flex items-center" v-else> <TableIcon class="w-5 h-5 mr-1" /> {{ project.resultFile }} </TBadge>
+					<div class="grid content-between">
+						<TButtonPrimary @click="recoverProject(project.historyHash)">
+							<RewindIcon class="mr-2 h-4 w-4" /> Recover project
+						</TButtonPrimary>
+
+						<TButtonWhite @click="deleteProject(project.historyHash)">
+							<TrashIcon class="mr-2 h-4 w-4" /> Delete from history
+						</TButtonWhite>
+					</div>
 				</div>
+			</TCard>
+		</div>
 
-				<div class="grid content-between">
-					<TButtonPrimary @click="recoverProject(project.historyHash)"> <RewindIcon class="mr-2 h-4 w-4" /> Recover project </TButtonPrimary>
-
-					<TButtonWhite @click="deleteProject(project.historyHash)"> <TrashIcon class="mr-2 h-4 w-4" /> Delete from history </TButtonWhite>
-				</div>
-			</div>
-		</TCard>
-
-		<p class="text-base text-center mt-5">History is limited to the last {{ $root.historySizeLimit }} projects added or edited!</p>
+		<p class="mt-10 text-center text-base">
+			History page is limited to the last {{ $root.historySizeLimit }} projects added or edited!
+		</p>
 	</div>
 
 	<TopRightButtonGroup>
@@ -58,7 +68,7 @@ export default {
 		RewindIcon,
 		TrashIcon,
 		TableIcon,
-		ArchiveIcon
+		ArchiveIcon,
 	},
 
 	methods: {
@@ -75,7 +85,7 @@ export default {
 			this.$root.resultFile = '' // Do not recover result file to not move user to last page
 
 			this.$root.historyScreen = false
-		}
-	}
+		},
+	},
 }
 </script>

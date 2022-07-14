@@ -17,9 +17,7 @@
 
 		<div class="flex justify-center space-x-2">
 			<TButtonWhite> <FolderIcon class="mr-2 h-4 w-4" /> Open target folder </TButtonWhite>
-			<TButtonPrimary @click="$root.resetApp()">
-				<RefreshIcon class="mr-2 h-4 w-4" /> Blend other spreedsheats
-			</TButtonPrimary>
+			<TButtonPrimary @click="$root.resetApp()"> <RefreshIcon class="mr-2 h-4 w-4" /> Blend other spreedsheats </TButtonPrimary>
 		</div>
 	</div>
 </template>
