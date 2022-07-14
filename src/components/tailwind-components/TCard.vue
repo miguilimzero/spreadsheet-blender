@@ -1,11 +1,9 @@
 <template>
-    <div class="bg-white overflow-hidden shadow rounded-lg">
-        <slot />
-    </div>
+	<div class="overflow-hidden rounded-lg bg-white shadow">
+		<slot />
+	</div>
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>

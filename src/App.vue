@@ -1,17 +1,17 @@
 <template>
-    <div class="bg-gray-50 mx-auto px-4 flex items-center justify-center h-screen">
-        <!-- Exception ~ History Screen -->
-        <HistoryScreen v-if="historyScreen" />
+	<div class="mx-auto flex h-screen items-center justify-center bg-gray-50 px-4">
+		<!-- Exception ~ History Screen -->
+		<HistoryScreen v-if="historyScreen" />
 
-        <!-- First Screen Condition -->
-        <FirstSelectScreen v-else-if="tableFiles.length === 0" />
+		<!-- First Screen Condition -->
+		<FirstSelectScreen v-else-if="tableFiles.length === 0" />
 
-        <!-- Second Screen Condition -->
-        <EditingScreen v-else-if="resultFile === ''" />
+		<!-- Second Screen Condition -->
+		<EditingScreen v-else-if="resultFile === ''" />
 
-        <!-- Third Screen Condition -->
-        <FinishedScreen v-else />    
-    </div>
+		<!-- Third Screen Condition -->
+		<FinishedScreen v-else />
+	</div>
 </template>
 
 <script>
@@ -22,18 +22,21 @@ import FinishedScreen from './screens/FinishedScreen'
 import HistoryScreen from './screens/HistoryScreen'
 
 export default {
-    name: 'App',
+	name: 'App',
 
-    data: () => ({
-        historyScreen: false,
-        tableFiles: [],
-        resultFile: '',
-        modelValue: '',
-        language: 'US',
-    }),
+	data: () => ({
+		historyScreen: false,
+		tableFiles: [],
+		resultFile: '',
+		modelValue: '',
+		language: 'US',
+	}),
 
-    components: {
-        FirstSelectScreen, EditingScreen, FinishedScreen, HistoryScreen,
-    }
+	components: {
+		FirstSelectScreen,
+		EditingScreen,
+		FinishedScreen,
+		HistoryScreen,
+	},
 }
 </script>

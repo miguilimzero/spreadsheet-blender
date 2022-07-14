@@ -1,22 +1,18 @@
 <template>
-    <div class="block">
-        <SelectSpreedsheetButton @click="selectFirstSpreedsheet()">
-            Select a new Spreadsheet Table
-        </SelectSpreedsheetButton>
-    </div>
+	<div class="block">
+		<SelectSpreedsheetButton @click="selectFirstSpreedsheet()"> Select a new Spreadsheet Table </SelectSpreedsheetButton>
+	</div>
 
-    <TopRightButtonGroup>
-        <TButtonWhite>
-            <UsaFlag class="w-5 h-5 mr-2" v-if="$root.language === 'US'" />
-            <BrazilFlag class="w-5 h-5 mr-2" v-if="$root.language === 'BR'" />
+	<TopRightButtonGroup>
+		<TButtonWhite>
+			<UsaFlag class="mr-2 h-5 w-5" v-if="$root.language === 'US'" />
+			<BrazilFlag class="mr-2 h-5 w-5" v-if="$root.language === 'BR'" />
 
-            Language
-        </TButtonWhite>
+			Language
+		</TButtonWhite>
 
-        <TButtonWhite @click="$root.historyScreen = true">
-            <ClockIcon class="w-4 h-4 mr-2" /> History
-        </TButtonWhite>
-    </TopRightButtonGroup>
+		<TButtonWhite @click="$root.historyScreen = true"> <ClockIcon class="mr-2 h-4 w-4" /> History </TButtonWhite>
+	</TopRightButtonGroup>
 </template>
 
 <script>
@@ -30,18 +26,21 @@ import UsaFlag from '@/components/country-flags/UsaFlag'
 import BrazilFlag from '@/components/country-flags/BrazilFlag'
 
 export default {
-    components: {
-        TopRightButtonGroup, SelectSpreedsheetButton, 
-        
-        ClockIcon, TButtonWhite,
+	components: {
+		TopRightButtonGroup,
+		SelectSpreedsheetButton,
 
-        UsaFlag, BrazilFlag,
-    },
+		ClockIcon,
+		TButtonWhite,
 
-    methods: {
-        selectFirstSpreedsheet() {
-            this.$root.tableFiles = ['x']
-        }
-    },
+		UsaFlag,
+		BrazilFlag,
+	},
+
+	methods: {
+		selectFirstSpreedsheet() {
+			this.$root.tableFiles = ['x']
+		},
+	},
 }
 </script>
