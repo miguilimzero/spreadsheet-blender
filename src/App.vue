@@ -38,5 +38,12 @@ export default {
 		FinishedScreen,
 		HistoryScreen,
 	},
+
+	methods: {
+		resetApp() {
+			this.tableFiles = []
+			this.resultFile = ''
+		}
+	}
 }
 </script>
