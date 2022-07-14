@@ -3,25 +3,25 @@
 		<TCard>
 			<div class="flex justify-between px-8 py-6">
 				<div class="block">
-					<div class="mb-6 flex items-center space-x-2">
+					<div class="mb-4 flex items-center space-x-2">
 						<h3 class="font-bold">Untitled Blend</h3>
 						<p class="font-medium">-</p>
 						<p class="font-medium">2022-07-14 16:45:32</p>
 					</div>
 
-					<p>Source files:</p>
+					<p class="mb-1">Source files (4 tables):</p>
 					<div class="mb-4 grid space-y-2">
-						<TBadge size="sm" v-for="i in [1, 2, 3, 4]" :key="i">
-							C:\Users\Rafaela\Area de Trabalho\Minhas Planinhas\PlaninhaRaw{{ i }}.csv
+						<TBadge class="flex items-center"  size="sm" v-for="i in [1, 2, 3, 4]" :key="i">
+							<TableIcon class="w-5 h-5 mr-1" /> C:\Users\Rafaela\Area de Trabalho\Minhas Planinhas\PlaninhaRaw{{ i }}.csv
 						</TBadge>
 					</div>
 
-					<p>Destination file:</p>
-					<TBadge> C:\Users\Rafaela\Area de Trabalho\Minhas Planinhas\PlaninhaFinal.csv </TBadge>
-					<TBadge color="gray"> No result file generated yet </TBadge>
+					<p class="mb-1">Destination file:</p>
+					<TBadge class="flex items-center"> <TableIcon class="w-5 h-5 mr-1" /> C:\Users\Rafaela\Area de Trabalho\Minhas Planinhas\PlaninhaFinal.csv </TBadge>
+					<TBadge class="flex items-center" color="gray"> <ArchiveIcon class="w-5 h-5 mr-1" /> No result file generated yet! </TBadge>
 				</div>
 
-				<div class="block">
+				<div class="grid content-between">
 					<TButtonPrimary> <RewindIcon class="mr-2 h-4 w-4" /> Recover project </TButtonPrimary>
 
 					<TButtonWhite> <TrashIcon class="mr-2 h-4 w-4" /> Delete from history </TButtonWhite>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { LogoutIcon, RewindIcon, TrashIcon } from '@heroicons/vue/solid'
+import { LogoutIcon, RewindIcon, TrashIcon, TableIcon, ArchiveIcon } from '@heroicons/vue/solid'
 
 import TopRightButtonGroup from '@/components/TopRightButtonGroup'
 
@@ -55,6 +55,8 @@ export default {
 		LogoutIcon,
 		RewindIcon,
 		TrashIcon,
+		TableIcon,
+		ArchiveIcon
 	},
 }
 </script>
