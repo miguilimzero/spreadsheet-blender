@@ -21,6 +21,9 @@ import FinishedScreen from './screens/FinishedScreen'
 
 import HistoryScreen from './screens/HistoryScreen'
 
+import HistoryMixin from './mixins/history'
+import DarkThemeMixin from './mixins/dark-theme'
+
 export default {
 	name: 'App',
 
@@ -31,6 +34,8 @@ export default {
 		modelValue: '',
 		language: 'US',
 	}),
+
+	mixins: [HistoryMixin, DarkThemeMixin],
 
 	components: {
 		FirstSelectScreen,
@@ -43,7 +48,7 @@ export default {
 		resetApp() {
 			this.tableFiles = []
 			this.resultFile = ''
-		}
+		},
 	}
 }
 </script>
