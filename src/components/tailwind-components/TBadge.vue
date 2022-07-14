@@ -14,7 +14,7 @@ export default {
 
 		color: {
 			type: String,
-			default: 'indigo',
+			default: 'primary',
 		},
 	},
 
@@ -22,7 +22,7 @@ export default {
 		colorClasses() {
 			return (
 				{
-					indigo: 'bg-indigo-100 text-indigo-600',
+					primary: 'bg-primary-100 text-primary-600',
 					gray: 'bg-gray-100 text-gray-600',
 				}[this.color] || ''
 			)
