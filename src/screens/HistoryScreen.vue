@@ -1,33 +1,35 @@
 <template>
 	<div class="block w-full space-y-2">
-		<TCard>
+		<TCard v-for="project in historyList" :key="project.historyHash">
 			<div class="flex justify-between px-8 py-6">
 				<div class="block">
 					<div class="mb-4 flex items-center space-x-2">
-						<h3 class="font-bold">Untitled Blend</h3>
+						<h3 class="font-bold">{{ project.projectName }}</h3>
 						<p class="font-medium">-</p>
-						<p class="font-medium">2022-07-14 16:45:32</p>
+						<p class="font-medium">{{ project.lastEditAt.toLocaleString() }}</p>
 					</div>
 
-					<p class="mb-1">Source files (4 tables):</p>
+					<p class="mb-1">Source files ({{ project.tableFiles.length }} tables):</p>
 					<div class="mb-4 grid space-y-2">
-						<TBadge class="flex items-center"  size="sm" v-for="i in [1, 2, 3, 4]" :key="i">
-							<TableIcon class="w-5 h-5 mr-1" /> C:\Users\Rafaela\Area de Trabalho\Minhas Planinhas\PlaninhaRaw{{ i }}.csv
+						<TBadge class="flex items-center"  size="sm" v-for="fileName in project.tableFiles" :key="fileName">
+							<TableIcon class="w-5 h-5 mr-1" /> {{ fileName }}
 						</TBadge>
 					</div>
 
 					<p class="mb-1">Destination file:</p>
-					<TBadge class="flex items-center"> <TableIcon class="w-5 h-5 mr-1" /> C:\Users\Rafaela\Area de Trabalho\Minhas Planinhas\PlaninhaFinal.csv </TBadge>
-					<TBadge class="flex items-center" color="gray"> <ArchiveIcon class="w-5 h-5 mr-1" /> No result file generated yet! </TBadge>
+					<TBadge class="flex items-center" color="gray" v-if="project.resultFile === ''"> <ArchiveIcon class="w-5 h-5 mr-1" /> No result file generated yet! </TBadge>
+					<TBadge class="flex items-center" v-else> <TableIcon class="w-5 h-5 mr-1" /> {{ project.resultFile }} </TBadge>
 				</div>
 
 				<div class="grid content-between">
-					<TButtonPrimary> <RewindIcon class="mr-2 h-4 w-4" /> Recover project </TButtonPrimary>
+					<TButtonPrimary @click="recoverProject(project.historyHash)"> <RewindIcon class="mr-2 h-4 w-4" /> Recover project </TButtonPrimary>
 
-					<TButtonWhite> <TrashIcon class="mr-2 h-4 w-4" /> Delete from history </TButtonWhite>
+					<TButtonWhite @click="deleteProject(project.historyHash)"> <TrashIcon class="mr-2 h-4 w-4" /> Delete from history </TButtonWhite>
 				</div>
 			</div>
 		</TCard>
+
+		<p class="text-base text-center mt-5">History is limited to the last {{ $root.historySizeLimit }} projects added or edited!</p>
 	</div>
 
 	<TopRightButtonGroup>
@@ -58,5 +60,22 @@ export default {
 		TableIcon,
 		ArchiveIcon
 	},
+
+	methods: {
+		deleteProject(historyHash) {
+			this.$root.deleteProjectFromHistory(historyHash)
+		},
+
+		recoverProject(historyHash) {
+			const projectData = this.$root.getProjectFromHistory(historyHash)
+
+			this.$root.historyHash = projectData.historyHash
+			this.$root.projectName = projectData.name
+			this.$root.tableFiles = projectData.tableFiles
+			this.$root.resultFile = '' // Do not recover result file to not move user to last page
+
+			this.$root.historyScreen = false
+		}
+	}
 }
 </script>

@@ -40,6 +40,8 @@ export default {
 	methods: {
 		selectFirstSpreedsheet() {
 			this.$root.tableFiles = ['x']
+
+			this.$root.appendProjectToHistory(this.$root.tableFiles, this.$root.resultFile)
 		},
 	},
 }

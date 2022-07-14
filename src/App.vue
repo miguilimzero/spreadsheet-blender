@@ -29,10 +29,13 @@ export default {
 
 	data: () => ({
 		historyScreen: false,
+		language: 'US',
+
+		// Project data
+		historyHash: '',
+		projectName: '',
 		tableFiles: [],
 		resultFile: '',
-		modelValue: '',
-		language: 'US',
 	}),
 
 	mixins: [HistoryMixin, DarkThemeMixin],
@@ -46,6 +49,7 @@ export default {
 
 	methods: {
 		resetApp() {
+			this.historyHash = ''
 			this.tableFiles = []
 			this.resultFile = ''
 		},
