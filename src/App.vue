@@ -53,6 +53,6 @@ export default {
 			this.tableFiles = []
 			this.resultFile = ''
 		},
-	}
+	},
 }
 </script>
