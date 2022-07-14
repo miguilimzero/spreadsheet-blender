@@ -15,20 +15,9 @@
     </div>
 
     <div class="flex justify-center">
-      <span
-        class="
-          px-2
-          py-1
-          bg-indigo-100
-          text-indigo-600
-          rounded-md
-          cursor-pointer
-          text-sm
-          font-semibold
-        "
-      >
+      <TBadge>
         C:\Users\Rafaela\Área de Trabalho\Minhas Planinhas\Resultado.csv
-      </span>
+      </TBadge>
     </div>
 
     <div class="flex justify-center space-x-2">
@@ -51,11 +40,14 @@
 import { RefreshIcon, FolderIcon } from "@heroicons/vue/solid";
 import { CheckIcon } from "@heroicons/vue/outline";
 
+
+import TBadge from "@/components/tailwind-components/TBadge";
 import TButtonPrimary from "@/components/tailwind-components/TButtonPrimary";
 import TButtonWhite from "@/components/tailwind-components/TButtonWhite";
 
 export default {
   components: {
+    TBadge,
     TButtonPrimary,
     TButtonWhite,
     RefreshIcon,
