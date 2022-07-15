@@ -1,8 +1,8 @@
 <template>
-	<div class="block w-full space-y-2">
-		<div class="space-y-8">
+	<div class="block w-full py-10">
+		<div class="space-y-4">
 			<TCard v-for="project in $root.historyList" :key="project.historyHash">
-				<div class="flex justify-between px-8 py-6">
+				<div class="flex justify-between px-6 py-6">
 					<div class="block">
 						<div class="mb-4 flex items-center space-x-2">
 							<h3 class="font-bold">{{ project.name }}</h3>

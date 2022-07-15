@@ -22,8 +22,8 @@ export default {
 		colorClasses() {
 			return (
 				{
-					primary: 'bg-primary-100 text-primary-600',
-					gray: 'bg-gray-100 text-gray-600',
+					primary: 'bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-400',
+					gray: 'bg-gray-100 text-gray-600 dark:bg-gray-900 dark:text-gray-400',
 				}[this.color] || ''
 			)
 		},
