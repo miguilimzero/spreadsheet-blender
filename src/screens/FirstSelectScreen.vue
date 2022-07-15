@@ -1,6 +1,6 @@
 <template>
 	<div class="block">
-		<SelectSpreedsheetButton @click="selectFirstSpreedsheet()"> Select a new Spreadsheet Table </SelectSpreedsheetButton>
+		<SelectSpreadsheetButton @click="selectFirstSpreadsheet()"> Select a new Spreadsheet Table </SelectSpreadsheetButton>
 	</div>
 
 	<TopRightButtonGroup>
@@ -18,7 +18,7 @@
 <script>
 import { ClockIcon } from '@heroicons/vue/solid'
 import TopRightButtonGroup from '@/components/TopRightButtonGroup'
-import SelectSpreedsheetButton from '@/components/SelectSpreedsheetButton'
+import SelectSpreadsheetButton from '@/components/SelectSpreadsheetButton'
 
 import TButtonWhite from '@/components/tailwind-components/TButtonWhite'
 
@@ -28,7 +28,7 @@ import BrazilFlag from '@/components/country-flags/BrazilFlag'
 export default {
 	components: {
 		TopRightButtonGroup,
-		SelectSpreedsheetButton,
+		SelectSpreadsheetButton,
 
 		ClockIcon,
 		TButtonWhite,
@@ -38,7 +38,7 @@ export default {
 	},
 
 	methods: {
-		selectFirstSpreedsheet() {
+		selectFirstSpreadsheet() {
 			this.$root.tableFiles = ['x']
 			this.$root.projectName = 'Untitled Project'
 
