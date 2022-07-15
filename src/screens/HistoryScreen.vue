@@ -82,7 +82,7 @@ export default {
 		TrashIcon,
 		TableIcon,
 		ArchiveIcon,
-		ExclamationIcon
+		ExclamationIcon,
 	},
 
 	methods: {

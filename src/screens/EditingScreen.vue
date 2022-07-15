@@ -6,35 +6,33 @@
 				<h2 v-else>{{ $root.projectName }}</h2>
 
 				<TButtonIcon @click="editingTitle = !editingTitle">
-					<CheckIcon class="w-6 h-6" v-if="editingTitle" />
-					<PencilIcon class="w-6 h-6" v-else />
+					<CheckIcon class="h-6 w-6" v-if="editingTitle" />
+					<PencilIcon class="h-6 w-6" v-else />
 				</TButtonIcon>
 			</div>
 
 			<div></div>
 		</div>
 
-		<hr class="my-6">
+		<hr class="my-6" />
 
 		<TCard>
-			<div class="p-6 flex space-x-2">
+			<div class="flex space-x-2 p-6">
 				<TCard v-for="fileName in $root.tableFiles" :key="fileName">
-					<div class="p-4 space-y-4">
-						<DatabaseIcon class="w-10 h-10" />
+					<div class="space-y-4 p-4">
+						<DatabaseIcon class="h-10 w-10" />
 					</div>
 				</TCard>
 
 				<!-- Add new table -->
-				<SelectSpreadsheetButton class="w-auto">
-					Add another spreadsheet
-				</SelectSpreadsheetButton>
+				<SelectSpreadsheetButton class="w-auto"> Add another spreadsheet </SelectSpreadsheetButton>
 			</div>
 		</TCard>
 
-		<hr  class="my-6">
+		<hr class="my-6" />
 	</div>
 
-	<div class="fixed bottom-0 flex w-screen justify-between border-t bg-white dark:bg-gray-800 px-6 py-4">
+	<div class="fixed bottom-0 flex w-screen justify-between border-t bg-white px-6 py-4 dark:bg-gray-800">
 		<TButtonWhite @click="$root.resetApp()"> <BanIcon class="mr-2 h-4 w-4" /> Cancel </TButtonWhite>
 		<TButtonPrimary @click="$root.resultFile = 'x'"> <CheckCircleIcon class="mr-2 h-4 w-4" /> Finish </TButtonPrimary>
 	</div>
@@ -72,13 +70,9 @@ export default {
 	}),
 
 	methods: {
-		removeTableFromList() {
+		removeTableFromList() {},
 
-		},
-
-		addTableToList() {
-
-		},
-	}
+		addTableToList() {},
+	},
 }
 </script>

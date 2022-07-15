@@ -1,34 +1,34 @@
 export default {
 	data: () => ({
 		historySizeLimit: 50,
-        historyList: [],
+		historyList: [],
 	}),
 
-    created() {
-        this.updateHistoryList()
+	created() {
+		this.updateHistoryList()
 	},
 
 	watch: {
-        watchProjectChangeTrick() {
-            if(this.historyHash === '') {
-                return
-            }
+		watchProjectChangeTrick() {
+			if (this.historyHash === '') {
+				return
+			}
 
-            this.updateProjectOnHistory(this.historyHash, this.projectName, this.tableFiles, this.resultFile)
-        },
-    },
+			this.updateProjectOnHistory(this.historyHash, this.projectName, this.tableFiles, this.resultFile)
+		},
+	},
 
-    computed: {
-        watchProjectChangeTrick() {
-            // Trick used to watch multiple data with single handler
-            return JSON.stringify([this.historyHash, this.projectName, this.tableFiles, this.resultFile])
-        }
-    },
+	computed: {
+		watchProjectChangeTrick() {
+			// Trick used to watch multiple data with single handler
+			return JSON.stringify([this.historyHash, this.projectName, this.tableFiles, this.resultFile])
+		},
+	},
 
 	methods: {
-        updateHistoryList() {
-            this.historyList = this.getRawHistory()
-        },
+		updateHistoryList() {
+			this.historyList = this.getRawHistory()
+		},
 
 		// History manipulation
 		appendProjectToHistory(name, tableFiles, resultFile) {
@@ -60,7 +60,7 @@ export default {
 				lastEditAt: new Date(),
 			}
 
-            // TODO: Reorder by lastEditAt
+			// TODO: Reorder by lastEditAt
 
 			this.saveRawHistory(historyList)
 		},
@@ -93,7 +93,7 @@ export default {
 		saveRawHistory(historyList) {
 			localStorage.setItem('historyList', JSON.stringify(historyList.filter(x => x)))
 
-            this.updateHistoryList()
+			this.updateHistoryList()
 		},
 
 		// Helpers
