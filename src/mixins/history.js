@@ -1,22 +1,35 @@
 export default {
 	data: () => ({
 		historySizeLimit: 50,
+        historyList: [],
 	}),
 
-	computed: {
-		historyList() {
-			return this.getRawHistory()
-		},
+    created() {
+        this.updateHistoryList()
 	},
 
-	watch: {},
+	watch: {
+        watchProjectChangeTrick() {
+            if(this.historyHash === '') {
+                return
+            }
 
-	created() {
-        
-		console.log(localStorage.getItem('historyList'))
-	},
+            this.updateProjectOnHistory(this.historyHash, this.projectName, this.tableFiles, this.resultFile)
+        },
+    },
+
+    computed: {
+        watchProjectChangeTrick() {
+            // Trick used to watch multiple data with single handler
+            return JSON.stringify([this.historyHash, this.projectName, this.tableFiles, this.resultFile])
+        }
+    },
 
 	methods: {
+        updateHistoryList() {
+            this.historyList = this.getRawHistory()
+        },
+
 		// History manipulation
 		appendProjectToHistory(name, tableFiles, resultFile) {
 			let historyList = this.getRawHistory()
@@ -76,7 +89,9 @@ export default {
 		},
 
 		saveRawHistory(historyList) {
-			localStorage.setItem('historyList', JSON.stringify(historyList.filter()))
+			localStorage.setItem('historyList', JSON.stringify(historyList.filter(x => x)))
+
+            this.updateHistoryList()
 		},
 
 		// Helpers
