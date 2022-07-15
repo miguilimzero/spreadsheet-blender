@@ -60,6 +60,8 @@ export default {
 				lastEditAt: new Date(),
 			}
 
+            // TODO: Reorder by lastEditAt
+
 			this.saveRawHistory(historyList)
 		},
 
