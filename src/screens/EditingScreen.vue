@@ -1,7 +1,7 @@
 <template>
 	<div class="block"></div>
 
-	<div class="fixed bottom-0 flex w-screen justify-between border-t bg-white px-4 py-2">
+	<div class="fixed bottom-0 flex w-screen justify-between border-t bg-white dark:bg-gray-800 px-4 py-2">
 		<TButtonWhite @click="$root.resetApp()"> <BanIcon class="mr-2 h-4 w-4" /> Cancel </TButtonWhite>
 		<TButtonPrimary @click="$root.resultFile = 'x'"> <CheckCircleIcon class="mr-2 h-4 w-4" /> Finish </TButtonPrimary>
 	</div>

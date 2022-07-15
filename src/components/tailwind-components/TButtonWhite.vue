@@ -2,8 +2,8 @@
 	<button
 		type="button"
 		:class="[
-			'inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm',
-			'hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2',
+			'inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-800 shadow-sm',
+			'hover:bg-gray-50 dark:hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:ring-offset-gray-600',
 			'transition-all duration-150 ease-in-out',
 		]"
 	>

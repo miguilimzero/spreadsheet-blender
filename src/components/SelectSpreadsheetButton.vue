@@ -2,13 +2,13 @@
 	<button
 		type="button"
 		:class="[
-			'relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center',
-			'hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2',
+			'relative block w-full rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-500 p-12 text-center',
+			'hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-600',
 			'transition-all duration-150 ease-in-out',
 		]"
 	>
 		<svg
-			class="mx-auto h-12 w-12 text-gray-400"
+			class="mx-auto h-12 w-12 text-gray-400 dark:text-gray-300"
 			xmlns="http://www.w3.org/2000/svg"
 			stroke="currentColor"
 			fill="none"
@@ -23,7 +23,7 @@
 			/>
 		</svg>
 
-		<span class="mt-2 block text-sm font-medium text-gray-900"><slot /></span>
+		<span class="mt-2 block text-sm font-medium text-gray-900 dark:text-white"><slot /></span>
 	</button>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-	<div class="mx-auto flex h-screen items-center justify-center bg-gray-50 px-4">
+	<div class="mx-auto flex h-screen items-center justify-center bg-gray-50 dark:bg-gray-700 px-4">
 		<!-- Exception ~ History Screen -->
 		<HistoryScreen v-if="historyScreen" />
 
