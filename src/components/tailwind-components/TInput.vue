@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div :class="containerClass">
 		<label :for="randomId" class="block text-sm font-medium text-gray-700">{{ label }}</label>
 
 		<div class="mt-1">
@@ -35,6 +35,11 @@ export default {
 		},
 
 		placeholder: {
+			type: String,
+			required: false,
+		},
+
+		containerClass: {
 			type: String,
 			required: false,
 		},

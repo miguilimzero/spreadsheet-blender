@@ -1,5 +1,5 @@
 <template>
-	<div class="mx-auto flex h-screen items-center justify-center -mt-[70px]">
+	<div class="mx-auto -mt-[70px] flex h-screen items-center justify-center">
 		<div class="block">
 			<input ref="file" type="file" class="hidden" @change="addFirstSpreadsheet()" />
 

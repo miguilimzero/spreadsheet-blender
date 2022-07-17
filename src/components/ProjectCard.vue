@@ -82,7 +82,7 @@ import TButtonPrimary from '@/components/tailwind-components/TButtonPrimary'
 import TButtonWhite from '@/components/tailwind-components/TButtonWhite'
 
 export default {
-    	components: {
+	components: {
 		TCard,
 		TButtonPrimary,
 		TButtonWhite,

@@ -3,8 +3,11 @@
 		<TopBar />
 
 		<div class="px-6">
+			<!-- Exception ~ About Screen -->
+			<AboutScreen v-if="aboutScreen" />
+
 			<!-- Exception ~ History Screen -->
-			<HistoryScreen v-if="historyScreen" />
+			<HistoryScreen v-else-if="historyScreen" />
 
 			<!-- First Screen Condition -->
 			<FirstSelectScreen v-else-if="project.spreadsheetList.length === 0" />
@@ -25,6 +28,7 @@ import FirstSelectScreen from './screens/FirstSelectScreen'
 import EditingScreen from './screens/EditingScreen'
 import FinishedScreen from './screens/FinishedScreen'
 
+import AboutScreen from './screens/AboutScreen'
 import HistoryScreen from './screens/HistoryScreen'
 
 import TopBar from './components/TopBar'
@@ -39,6 +43,7 @@ export default {
 
 	data: () => ({
 		historyScreen: false,
+		aboutScreen: false,
 		project: {},
 	}),
 
@@ -48,6 +53,7 @@ export default {
 		FirstSelectScreen,
 		EditingScreen,
 		FinishedScreen,
+		AboutScreen,
 		HistoryScreen,
 		TopBar,
 		BottomBar,

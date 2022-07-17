@@ -1,10 +1,10 @@
 <template>
 	<div class="flex justify-between py-4 px-6">
 		<div class="flex items-center space-x-4">
-			<h2 class="font-bold tracking-tighter" v-if="$root.project.spreadsheetList.length === 0">Spreadsheet Blender</h2>
+			<h2 class="font-bold tracking-tighter cursor-pointer" v-if="$root.project.spreadsheetList.length === 0" @click="$root.aboutScreen = true">Spreadsheet Blender</h2>
 
 			<template v-else>
-				<TInput type="text" v-model="$root.project.name" v-if="editingTitle" />
+				<TInput container-class="-my-1.5" type="text" v-model="$root.project.name" v-if="editingTitle" />
 				<h2 v-else>{{ $root.project.name }}</h2>
 
 				<TButtonIcon @click="editingTitle = !editingTitle">
@@ -19,7 +19,11 @@
 
 			<ThemeSelector />
 
-			<TButtonWhite @click="$root.historyScreen = false" v-if="$root.historyScreen">
+            <TButtonWhite @click="$root.aboutScreen = false" v-if="$root.aboutScreen">
+				<LogoutIcon class="mr-2 h-4 w-4" /> {{ $t('Back') }}
+			</TButtonWhite>
+
+			<TButtonWhite @click="$root.historyScreen = false" v-else-if="$root.historyScreen">
 				<LogoutIcon class="mr-2 h-4 w-4" /> {{ $t('Back') }}
 			</TButtonWhite>
 
@@ -50,8 +54,8 @@ export default {
 		ClockIcon,
 		CheckIcon,
 		PencilIcon,
-        TInput,
-        TButtonIcon,
+		TInput,
+		TButtonIcon,
 		TButtonWhite,
 	},
 
