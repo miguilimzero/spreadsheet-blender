@@ -1,7 +1,13 @@
 <template>
 	<div class="flex justify-between py-4 px-6">
 		<div class="flex items-center space-x-4">
-			<h2 class="font-bold tracking-tighter cursor-pointer" v-if="$root.project.spreadsheetList.length === 0" @click="$root.aboutScreen = true">Spreadsheet Blender</h2>
+			<h2
+				class="font-bold tracking-tighter cursor-pointer"
+				v-if="$root.project.spreadsheetList.length === 0"
+				@click="$root.aboutScreen = true"
+			>
+				Spreadsheet Blender
+			</h2>
 
 			<template v-else>
 				<TInput container-class="-my-1.5" type="text" v-model="$root.project.name" v-if="editingTitle" />
@@ -14,12 +20,16 @@
 			</template>
 		</div>
 
-		<div class="relative flex items-center space-x-4">
-			<LanguageSelector />
+		<div class="flex items-center space-x-4">
+			<div class="relative">
+				<LanguageSelector />
+			</div>
 
-			<ThemeSelector />
+			<div class="relative">
+				<ThemeSelector />
+			</div>
 
-            <TButtonWhite @click="$root.aboutScreen = false" v-if="$root.aboutScreen">
+			<TButtonWhite @click="$root.aboutScreen = false" v-if="$root.aboutScreen">
 				<LogoutIcon class="mr-2 h-4 w-4" /> {{ $t('Back') }}
 			</TButtonWhite>
 

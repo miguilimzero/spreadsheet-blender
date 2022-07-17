@@ -2,8 +2,8 @@
 	<div class="mx-auto -mt-[70px] flex h-screen items-center justify-center">
 		<div class="block space-y-10">
 			<div class="flex justify-center">
-				<div class="rounded-full bg-green-100 p-5">
-					<CheckIcon class="h-10 w-10 text-green-600" />
+				<div class="rounded-full bg-green-100 dark:bg-green-900 p-5">
+					<CheckIcon class="h-10 w-10 text-green-600 dark:text-green-300" />
 				</div>
 			</div>
 
@@ -15,7 +15,7 @@
 			</div>
 
 			<div class="flex justify-center">
-				<TBadge @click="openFolder()"> {{ $root.project.resultFile }} </TBadge>
+				<TBadge class="cursor-pointer" @click="openFolder()"> {{ $root.project.resultFile }} </TBadge>
 			</div>
 
 			<div class="flex justify-center space-x-2">

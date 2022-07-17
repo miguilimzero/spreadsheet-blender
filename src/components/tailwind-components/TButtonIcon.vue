@@ -32,7 +32,7 @@ export default {
 		textClasses() {
 			return (
 				{
-					gray: `text-gray-400 hover:text-gray-500 focus:text-gray-500 focus:ring-gray-500`,
+					gray: `text-gray-400 hover:text-gray-500 focus:text-gray-500 focus:ring-gray-500 dark:text-gray-300 dark:hover:text-gray-200 dark:focus:ring-gray-400`,
 				}[this.color] || ''
 			)
 		},

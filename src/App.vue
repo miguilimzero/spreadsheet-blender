@@ -20,6 +20,7 @@
 		</div>
 
 		<BottomBar v-if="project.spreadsheetList.length !== 0 && project.resultFile === ''" />
+		<BottomFooter v-else />
 	</div>
 </template>
 
@@ -33,6 +34,7 @@ import HistoryScreen from './screens/HistoryScreen'
 
 import TopBar from './components/TopBar'
 import BottomBar from './components/BottomBar'
+import BottomFooter from './components/BottomFooter'
 
 import HistoryMixin from './mixins/history'
 import DarkThemeMixin from './mixins/dark-theme'
@@ -57,6 +59,7 @@ export default {
 		HistoryScreen,
 		TopBar,
 		BottomBar,
+		BottomFooter,
 	},
 
 	created() {

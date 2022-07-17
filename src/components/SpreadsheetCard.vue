@@ -2,7 +2,7 @@
 	<div class="w-72 overflow-hidden rounded-lg border bg-white dark:bg-gray-800">
 		<div class="space-y-6 py-4 px-8">
 			<div class="flex justify-center">
-				<div class="rounded-full bg-primary-100 p-3 text-primary-600">
+				<div class="rounded-full bg-primary-100 p-3 text-primary-600 dark:bg-primary-900 dark:text-primary-300">
 					<TableIcon class="h-8 w-8" />
 				</div>
 			</div>
@@ -10,7 +10,7 @@
 			<h5 class="text-center font-bold">{{ file.name }}</h5>
 
 			<div class="flex justify-center">
-				<TBadge>
+				<TBadge color="green">
 					{{ formattedSize }}
 				</TBadge>
 			</div>

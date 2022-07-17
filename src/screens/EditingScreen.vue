@@ -1,6 +1,6 @@
 <template>
 	<div class="block w-full">
-		<hr class="my-6" />
+		<hr class="mb-4" />
 
 		<TCard>
 			<div class="flex space-x-2 overflow-x-auto p-6">
@@ -14,11 +14,13 @@
 				<!-- Add new spreadsheet -->
 				<input ref="file" type="file" class="hidden" @change="addNewSpreadsheet()" />
 
-				<SelectSpreadsheetButton class="w-72" @click="$refs.file.click()"> Add another spreadsheet </SelectSpreadsheetButton>
+				<SelectSpreadsheetButton class="w-72" @click="$refs.file.click()"> {{ $t("Add another spreadsheet") }} </SelectSpreadsheetButton>
 			</div>
 		</TCard>
 
-		<hr class="my-6" />
+		<hr class="my-4" />
+
+		
 	</div>
 </template>
 

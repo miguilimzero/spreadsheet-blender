@@ -1,5 +1,5 @@
 <template>
-	<span :class="['cursor-pointer rounded-md text-sm font-semibold', sizeClasses, colorClasses]">
+	<span :class="['rounded-md text-sm font-semibold', sizeClasses, colorClasses]">
 		<slot />
 	</span>
 </template>
@@ -22,8 +22,9 @@ export default {
 		colorClasses() {
 			return (
 				{
-					primary: 'bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-400',
-					gray: 'bg-gray-100 text-gray-600 dark:bg-gray-900 dark:text-gray-400',
+					primary: 'bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-300',
+					green: 'bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-300',
+					gray: 'bg-gray-100 text-gray-600 dark:bg-gray-900 dark:text-gray-300',
 				}[this.color] || ''
 			)
 		},
