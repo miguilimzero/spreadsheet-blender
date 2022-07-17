@@ -42,7 +42,7 @@ export default {
 		FolderIcon,
 	},
 
-	computed: {
+	methods: {
 		openFolder() {
 			shell.showItemInFolder(this.$root.project.resultFile)
 		},
