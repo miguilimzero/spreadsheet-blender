@@ -38,6 +38,7 @@ import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headless
 
 import BrazilFlag from './country-flags/BrazilFlag'
 import UsaFlag from './country-flags/UsaFlag'
+import SpainFlag from './country-flags/SpainFlag'
 
 export default {
 	components: {
@@ -49,8 +50,9 @@ export default {
 
 	data: () => ({
 		languages: [
+            { name: 'Português', value: 'pt', icon: BrazilFlag },
 			{ name: 'English', value: 'en', icon: UsaFlag },
-			{ name: 'Portuguese', value: 'pt', icon: BrazilFlag },
+            { name: 'Español', value: 'es', icon: SpainFlag },
 		],
 	}),
 
