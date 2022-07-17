@@ -10,7 +10,7 @@ export default {
 
 	watch: {
 		watchProjectChangeTrick() {
-			if(this.project.historyHash === '') {
+			if (this.project.historyHash === '') {
 				return
 			}
 

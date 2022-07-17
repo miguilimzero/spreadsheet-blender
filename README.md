@@ -9,13 +9,13 @@ O programa utiliza do algorítimo de Levenshtein para fazer a mesclagem, podendo
 
 Para o desenvolvimento do projeto, foram utilizadas as seguintes principais tecnologias:
 
-- Node.js
-- Electron
-- Vue.js
-- Tailwind CSS
+-   Node.js
+-   Electron
+-   Vue.js
+-   Tailwind CSS
 
-Tambem foi utilizado a ferramenta [Prettier](https://prettier.io/) com a extensão de [Ordenação de classes](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier) 
-da Tailwind CSS para uma melhor padronização dos arquivos. 
+Tambem foi utilizado a ferramenta [Prettier](https://prettier.io/) com a extensão de [Ordenação de classes](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier)
+da Tailwind CSS para uma melhor padronização dos arquivos.
 
 Tambem foi utilizada a fonte [heroIcons](https://heroicons.com/) para todos os ícones utilizados no projeto. Com exceção das bandeiras, que nesse caso,
 foi utilizado o [Pack de bandeiras arredondadas](https://www.flaticon.com/packs/countrys-flags) disponibilizado pelo Flaticon.
@@ -23,7 +23,6 @@ foi utilizado o [Pack de bandeiras arredondadas](https://www.flaticon.com/packs/
 ## Fazer setup do projeto
 
 Para fazer setup do projeto primeiro faça `git clone` do repositório e instale as dependências NPM.
-
 
 ```bash
 git clone https://github.com/srdante/aic-trabalho
@@ -38,7 +37,7 @@ Após essa instalação inicial, você iniciar um processo local para modificar 
 
 ```bash
 npm run electron:serve
-``` 
+```
 
 ## Compilar para distribuição
 
@@ -52,20 +51,22 @@ npm run electron:build
 Agora se você quer compilar para outros sistemas operacionais, abaixo estão listados os comandos necessários para os 3 principais:
 
 **Linux:**
+
 ```bash
 npm run electron:build-linux
 ```
 
 **Mac OS:**
+
 ```bash
 npm run electron:build-macos
 ```
 
 **Windows:**
+
 ```bash
 npm run electron:build-windows
 ```
-
 
 ## Como contribuir
 

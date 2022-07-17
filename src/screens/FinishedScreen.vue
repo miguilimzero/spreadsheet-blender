@@ -46,6 +46,6 @@ export default {
 		openFolder() {
 			shell.showItemInFolder(this.$root.project.resultFile)
 		},
-	}
+	},
 }
 </script>

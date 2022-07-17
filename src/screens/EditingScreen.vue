@@ -17,27 +17,29 @@
 		<hr class="my-6" />
 
 		<TCard>
-			<div class="flex overflow-x-auto space-x-2 p-6">
-				<div class="overflow-hidden rounded-lg bg-white dark:bg-gray-800 w-72 border" v-for="(fileName, index) in $root.project.tableFiles" :key="fileName">
+			<div class="flex space-x-2 overflow-x-auto p-6">
+				<div
+					class="w-72 overflow-hidden rounded-lg border bg-white dark:bg-gray-800"
+					v-for="(fileName, index) in $root.project.tableFiles"
+					:key="fileName"
+				>
 					<div class="space-y-4 py-6 px-8">
 						<div class="flex justify-center">
-							<div class="bg-indigo-100 text-indigo-600 p-3 rounded-full">
+							<div class="rounded-full bg-indigo-100 p-3 text-indigo-600">
 								<DatabaseIcon class="h-8 w-8" />
 							</div>
 						</div>
 
-						<h4 class="font-bold text-center">Table {{ index + 1 }}</h4>
+						<h4 class="text-center font-bold">Table {{ index + 1 }}</h4>
 
 						<TBadge color="gray">
 							{{ fileName }}
 						</TBadge>
 
 						<div class="flex justify-center space-x-2">
-							<TButtonPrimary>
-								<CogIcon class="w-4 h-4 mr-2" /> Options
-							</TButtonPrimary>
+							<TButtonPrimary> <CogIcon class="mr-2 h-4 w-4" /> Options </TButtonPrimary>
 							<TButtonWhite @click="$root.removeSpreadsheet(fileName)">
-								<TrashIcon class="w-4 h-4" />
+								<TrashIcon class="h-4 w-4" />
 							</TButtonWhite>
 						</div>
 					</div>
@@ -87,7 +89,7 @@ export default {
 		CheckIcon,
 		SelectSpreadsheetButton,
 		TrashIcon,
-		CogIcon
+		CogIcon,
 	},
 
 	data: () => ({

@@ -31,7 +31,7 @@ export default {
 		historyScreen: false,
 		language: 'US',
 
-		project: {}
+		project: {},
 	}),
 
 	mixins: [HistoryMixin, DarkThemeMixin],
