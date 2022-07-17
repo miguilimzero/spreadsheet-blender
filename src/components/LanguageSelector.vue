@@ -5,7 +5,7 @@
 		</ListboxButton>
 
 		<ListboxOptions
-			class="absolute top-full z-10 right-1/2 mt-3 -mr-3 w-36 space-y-1 rounded-xl bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5"
+			class="absolute top-full right-1/2 z-10 mt-3 -mr-3 w-36 space-y-1 rounded-xl bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5"
 		>
 			<ListboxOption
 				v-for="language in languages"

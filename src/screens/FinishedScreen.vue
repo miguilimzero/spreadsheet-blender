@@ -2,7 +2,7 @@
 	<div class="mx-auto -mt-[70px] flex h-screen items-center justify-center">
 		<div class="block space-y-10">
 			<div class="flex justify-center">
-				<div class="rounded-full bg-green-100 dark:bg-green-900 p-5">
+				<div class="rounded-full bg-green-100 p-5 dark:bg-green-900">
 					<CheckIcon class="h-10 w-10 text-green-600 dark:text-green-300" />
 				</div>
 			</div>

@@ -7,7 +7,7 @@
 				</div>
 			</div>
 
-			<h5 class="text-center font-semibold break-words">{{ file.name }}</h5>
+			<h5 class="break-words text-center font-semibold">{{ file.name }}</h5>
 
 			<div class="flex justify-center">
 				<TBadge color="green">

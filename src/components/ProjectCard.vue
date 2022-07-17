@@ -34,7 +34,9 @@
 						>
 							{{ project.resultFile }}
 						</span>
-						<span class="text-sm font-medium text-gray-900 dark:text-white" v-else> {{ $t('No result file generated yet!') }} </span>
+						<span class="text-sm font-medium text-gray-900 dark:text-white" v-else>
+							{{ $t('No result file generated yet!') }}
+						</span>
 					</dd>
 				</div>
 			</dl>
@@ -43,7 +45,10 @@
 				<div class="border-t px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
 					<dt class="text-sm font-medium text-gray-500 dark:text-gray-200">{{ $t('Table Files') }}</dt>
 					<dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-						<ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200 dark:border-gray-400 dark:divide-gray-400">
+						<ul
+							role="list"
+							class="divide-y divide-gray-200 rounded-md border border-gray-200 dark:divide-gray-400 dark:border-gray-400"
+						>
 							<li
 								class="flex items-center justify-between py-2 pl-3 pr-4 text-sm"
 								v-for="spreadsheetFile in project.spreadsheetList"
@@ -86,7 +91,7 @@ export default {
 		project: {
 			type: Object,
 			required: true,
-		}
+		},
 	},
 
 	components: {
