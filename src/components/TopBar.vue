@@ -1,7 +1,7 @@
 <template>
 	<div class="flex justify-between py-4 px-4">
 		<div class="flex items-center space-x-4">
-			<h3 class="font-bold tracking-tighter" v-if="project.spreadsheetList.length === 0">Spreadsheet Blender</h3>
+			<h2 class="font-bold tracking-tighter" v-if="$root.project.spreadsheetList.length === 0">Spreadsheet Blender</h2>
 
 			<template v-else>
 				<TInput type="text" v-model="$root.project.name" v-if="editingTitle" />
@@ -37,6 +37,8 @@ import { CheckIcon, PencilIcon } from '@heroicons/vue/outline'
 import ThemeSelector from '@/components/ThemeSelector'
 import LanguageSelector from '@/components/LanguageSelector'
 
+import TInput from '@/components/tailwind-components/TInput'
+import TButtonIcon from '@/components/tailwind-components/TButtonIcon'
 import TButtonWhite from '@/components/tailwind-components/TButtonWhite'
 
 export default {
@@ -48,6 +50,8 @@ export default {
 		ClockIcon,
 		CheckIcon,
 		PencilIcon,
+        TInput,
+        TButtonIcon,
 		TButtonWhite,
 	},
 

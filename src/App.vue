@@ -1,8 +1,8 @@
 <template>
-	<div class="mx-auto flex h-screen items-center justify-center bg-gray-50 px-4 dark:bg-gray-700">
+	<div class="bg-gray-50 px-4 dark:bg-gray-700">
 		<TopBar />
 
-		<div>
+		<div class="mx-auto h-screen items-center justify-center">
 			<!-- Exception ~ History Screen -->
 			<HistoryScreen v-if="historyScreen" />
 
