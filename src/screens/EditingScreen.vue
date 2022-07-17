@@ -5,7 +5,11 @@
 		<TCard>
 			<div class="flex space-x-2 overflow-x-auto p-6">
 				<!-- Spreadsheet list display -->
-				<SpreadsheetCard :file="spreadsheetFile" v-for="spreadsheetFile in $root.project.spreadsheetList" :key="spreadsheetFile.path" />
+				<SpreadsheetCard
+					:file="spreadsheetFile"
+					v-for="spreadsheetFile in $root.project.spreadsheetList"
+					:key="spreadsheetFile.path"
+				/>
 
 				<!-- Add new spreadsheet -->
 				<input ref="file" type="file" class="hidden" @change="addNewSpreadsheet()" />

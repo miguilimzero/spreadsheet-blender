@@ -42,7 +42,7 @@ export default {
 	},
 
 	components: {
-        TBadge,
+		TBadge,
 		TButtonPrimary,
 		TButtonWhite,
 

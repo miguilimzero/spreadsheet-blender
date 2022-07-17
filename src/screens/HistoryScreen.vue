@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import {FolderIcon, TrashIcon, TableIcon } from '@heroicons/vue/solid'
+import { FolderIcon, TrashIcon, TableIcon } from '@heroicons/vue/solid'
 
 import { ExclamationIcon, DatabaseIcon } from '@heroicons/vue/outline'
 

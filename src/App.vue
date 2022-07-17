@@ -50,7 +50,7 @@ export default {
 		FinishedScreen,
 		HistoryScreen,
 		TopBar,
-		BottomBar
+		BottomBar,
 	},
 
 	created() {

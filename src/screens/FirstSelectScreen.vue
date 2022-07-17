@@ -19,7 +19,7 @@ export default {
 			const success = this.$root.addSpreadsheet(this.$refs.file.files[0])
 
 			if (success) {
-				this.$root.project.name = this.$t("Untitled Project")
+				this.$root.project.name = this.$t('Untitled Project')
 
 				const historyHash = this.$root.appendProjectToHistory(this.$root.project)
 
