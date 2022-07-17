@@ -7,8 +7,8 @@
 		</div>
 
 		<div class="space-y-4">
-			<h1 class="text-center">Merge Completed</h1>
-			<p class="text-center">Congratulations you merged all selected tables. You can find the result in the directory below:</p>
+			<h1 class="text-center">{{ $t("Merge Completed") }}</h1>
+			<p class="text-center">{{ $t("Congratulations you merged all selected spreadsheets. You can find the result in the path below:") }}</p>
 		</div>
 
 		<div class="flex justify-center">
@@ -16,14 +16,14 @@
 		</div>
 
 		<div class="flex justify-center space-x-2">
-			<TButtonWhite @click="$root.resetApp()"> <RefreshIcon class="mr-2 h-4 w-4" /> Blend other spreedsheats </TButtonWhite>
-			<TButtonPrimary @click="openFolder()"> <FolderIcon class="mr-2 h-4 w-4" /> Open target folder </TButtonPrimary>
+			<TButtonWhite @click="$root.resetApp()"> <RefreshIcon class="mr-2 h-4 w-4" /> {{ $t("Blend other spreadsheets") }} </TButtonWhite>
+			<TButtonPrimary @click="openResultFile()"> <ArchiveIcon class="mr-2 h-4 w-4" /> {{ $t("Open result file") }} </TButtonPrimary>
 		</div>
 	</div>
 </template>
 
 <script>
-import { RefreshIcon, FolderIcon } from '@heroicons/vue/solid'
+import { RefreshIcon, ArchiveIcon } from '@heroicons/vue/solid'
 import { CheckIcon } from '@heroicons/vue/outline'
 
 import TBadge from '@/components/tailwind-components/TBadge'
@@ -39,11 +39,11 @@ export default {
 		TButtonWhite,
 		RefreshIcon,
 		CheckIcon,
-		FolderIcon,
+		ArchiveIcon,
 	},
 
 	methods: {
-		openFolder() {
+		openResultFile() {
 			shell.showItemInFolder(this.$root.project.resultFile)
 		},
 	},

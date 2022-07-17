@@ -6,7 +6,23 @@
 		</ListboxButton>
 
 		<ListboxOptions
-			class="absolute top-full left-1/2 mt-3 w-36 -translate-x-1/2 space-y-1 rounded-xl bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5"
+			class="
+				absolute
+				top-full
+				left-1/2
+				mt-3
+				w-36
+				-translate-x-1/2
+				space-y-1
+				rounded-xl
+				bg-white
+				p-3
+				text-sm
+				font-medium
+				shadow-md shadow-black/5
+				ring-1 ring-black/5
+				dark:bg-slate-800 dark:ring-white/5
+			"
 		>
 			<ListboxOption v-for="theme in themes" :key="theme" :value="theme.value" v-slot="{ active, selected }" as="template">
 				<div
@@ -50,12 +66,14 @@ export default {
 		SystemIcon,
 	},
 
-	data: () => ({
-		themes: [
-			{ name: 'Light', value: 'light', icon: LightIcon },
-			{ name: 'Dark', value: 'dark', icon: DarkIcon },
-			{ name: 'System', value: 'system', icon: SystemIcon },
-		],
-	}),
+	computed: {
+		themes() {
+			return [
+				{ name: this.$t('Light'), value: 'light', icon: LightIcon },
+				{ name: this.$t('Dark'), value: 'dark', icon: DarkIcon },
+				{ name: this.$t('System'), value: 'system', icon: SystemIcon },
+			]
+		}
+	}
 }
 </script>

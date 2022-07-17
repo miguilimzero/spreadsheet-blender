@@ -5,7 +5,23 @@
 		</ListboxButton>
 
 		<ListboxOptions
-			class="absolute top-full left-1/2 mt-3 w-36 -translate-x-1/2 space-y-1 rounded-xl bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5"
+			class="
+				absolute
+				top-full
+				left-1/2
+				mt-3
+				w-36
+				-translate-x-1/2
+				space-y-1
+				rounded-xl
+				bg-white
+				p-3
+				text-sm
+				font-medium
+				shadow-md shadow-black/5
+				ring-1 ring-black/5
+				dark:bg-slate-800 dark:ring-white/5
+			"
 		>
 			<ListboxOption
 				v-for="language in languages"
@@ -48,17 +64,17 @@ export default {
 		ListboxOption,
 	},
 
-	data: () => ({
-		languages: [
-            { name: 'Português', value: 'pt', icon: BrazilFlag },
-			{ name: 'English', value: 'en', icon: UsaFlag },
-            { name: 'Español', value: 'es', icon: SpainFlag },
-		],
-	}),
-
 	computed: {
 		currentLanguageIcon() {
 			return this.languages.find(language => language.value === this.$root.currentLanguage).icon
+		},
+
+		languages() {
+			return [
+				{ name: 'Português', value: 'pt', icon: BrazilFlag },
+				{ name: 'English', value: 'en', icon: UsaFlag },
+				{ name: 'Español', value: 'es', icon: SpainFlag },
+			]
 		},
 	},
 }

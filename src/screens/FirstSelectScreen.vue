@@ -2,7 +2,7 @@
 	<div class="block">
 		<input ref="file" type="file" class="hidden" @change="addFirstSpreadsheet()" />
 
-		<SelectSpreadsheetButton @click="$refs.file.click()"> {{ $t('Select a new Spreadsheet to start') }} </SelectSpreadsheetButton>
+		<SelectSpreadsheetButton @click="$refs.file.click()"> {{ $t('Select a new spreadsheet to start') }} </SelectSpreadsheetButton>
 	</div>
 
 	<TopRightButtonGroup>
@@ -10,7 +10,7 @@
 
 		<ThemeSelector />
 
-		<TButtonWhite @click="$root.historyScreen = true"> <ClockIcon class="mr-2 h-4 w-4" /> History </TButtonWhite>
+		<TButtonWhite @click="$root.historyScreen = true"> <ClockIcon class="mr-2 h-4 w-4" /> {{ $t("History") }} </TButtonWhite>
 	</TopRightButtonGroup>
 </template>
 

@@ -17,7 +17,7 @@
 
 					<div class="flex space-x-2">
 						<TButtonPrimary @click="recoverProject(project.historyHash)">
-							<RewindIcon class="mr-2 h-4 w-4" /> Recover project
+							<FolderIcon class="mr-2 h-4 w-4" /> {{ $t("Open project") }}
 						</TButtonPrimary>
 						<TButtonWhite @click="deleteProject(project.historyHash)">
 							<TrashIcon class="h-4 w-4" />
@@ -27,22 +27,23 @@
 				<div>
 					<dl>
 						<div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-							<dt class="text-sm font-medium text-gray-500">Result File</dt>
+							<dt class="text-sm font-medium text-gray-500">{{ $t("Result File") }}</dt>
 							<dd class="mt-1 sm:col-span-2 sm:mt-0">
 								<span
 									class="cursor-pointer text-sm font-medium text-primary-600 hover:text-primary-500"
+									@click="openFile(project.resultFile)"
 									v-if="project.resultFile"
 								>
 									{{ project.resultFile }}
 								</span>
-								<span class="text-sm font-medium text-gray-900" v-else> No result file generated yet! </span>
+								<span class="text-sm font-medium text-gray-900" v-else> {{ $t("No result file generated yet!") }} </span>
 							</dd>
 						</div>
 					</dl>
 
 					<dl>
 						<div class="border-t px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-							<dt class="text-sm font-medium text-gray-500">Table Files</dt>
+							<dt class="text-sm font-medium text-gray-500">{{ $t("Table Files") }}</dt>
 							<dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
 								<ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200">
 									<li
@@ -56,7 +57,7 @@
 										</div>
 										<div class="ml-4 flex-shrink-0">
 											<span class="cursor-pointer font-medium text-primary-600 hover:text-primary-500" @click="openFile(fileName)">
-												Open table
+												{{ $t("Open table") }}
 											</span>
 										</div>
 									</li>
@@ -75,22 +76,22 @@
 				</div>
 			</div>
 
-			<h2 class="text-center">No Projects Found</h2>
-			<p class="text-center">Apparently you haven't started any projects! Start a new project to see it listed on this page.</p>
+			<h2 class="text-center">{{ $t("No Projects Found") }}</h2>
+			<p class="text-center">{{ $t("Apparently you haven't started any projects! Start a new project to see it listed on this page.") }}</p>
 		</div>
 
 		<p class="mt-10 text-center text-base" v-else>
-			History page is limited to the last {{ $root.historySizeLimit }} projects added or edited!
+			{{ $t("History page is limited to the last {number} projects added or edited!", { number: $root.historySizeLimit }) }}
 		</p>
 	</div>
 
 	<TopRightButtonGroup>
-		<TButtonWhite @click="$root.historyScreen = false"> <LogoutIcon class="mr-2 h-4 w-4" /> Back </TButtonWhite>
+		<TButtonWhite @click="$root.historyScreen = false"> <LogoutIcon class="mr-2 h-4 w-4" /> {{ $t("Back") }} </TButtonWhite>
 	</TopRightButtonGroup>
 </template>
 
 <script>
-import { LogoutIcon, RewindIcon, TrashIcon, TableIcon } from '@heroicons/vue/solid'
+import { LogoutIcon, FolderIcon, TrashIcon, TableIcon } from '@heroicons/vue/solid'
 
 import { ExclamationIcon, DatabaseIcon } from '@heroicons/vue/outline'
 
@@ -109,7 +110,7 @@ export default {
 		TButtonPrimary,
 		TButtonWhite,
 		LogoutIcon,
-		RewindIcon,
+		FolderIcon,
 		TrashIcon,
 		TableIcon,
 		ExclamationIcon,

@@ -60,7 +60,7 @@ export default {
 				lastEditAt: new Date(),
 			}
 
-			historyList.sort((a, b) => b.lastEditAt - a.lastEditAt)
+			historyList.sort((a, b) => b.lastEditAt - a.lastEditAt) // TODO: Check if this is really working
 
 			this.saveRawHistory(historyList)
 		},
