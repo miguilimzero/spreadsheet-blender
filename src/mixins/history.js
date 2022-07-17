@@ -21,7 +21,7 @@ export default {
 	computed: {
 		watchProjectChangeTrick() {
 			// Trick used to watch multiple data with single handler
-			return JSON.stringify([this.project.historyHash, this.project.name, this.project.tableFiles, this.project.resultFile])
+			return JSON.stringify([this.project.historyHash, this.project.name, this.project.spreadsheetList, this.project.resultFile])
 		},
 	},
 
@@ -39,7 +39,7 @@ export default {
 			historyList.unshift({
 				historyHash: newHistoryHash,
 				name: project.name,
-				tableFiles: project.tableFiles,
+				spreadsheetList: project.spreadsheetList,
 				resultFile: project.resultFile,
 				lastEditAt: new Date(),
 			})
@@ -55,7 +55,7 @@ export default {
 			historyList[this.findProjectArrayKey(project.historyHash)] = {
 				historyHash: project.historyHash,
 				name: project.name,
-				tableFiles: project.tableFiles,
+				spreadsheetList: project.spreadsheetList,
 				resultFile: project.resultFile,
 				lastEditAt: new Date(),
 			}

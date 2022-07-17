@@ -48,17 +48,17 @@
 								<ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200">
 									<li
 										class="flex items-center justify-between py-2 pl-3 pr-4 text-sm"
-										v-for="fileName in project.tableFiles"
-										:key="fileName"
+										v-for="spreadsheetFile in project.spreadsheetList"
+										:key="spreadsheetFile"
 									>
 										<div class="flex w-0 flex-1 items-center">
 											<TableIcon class="h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-											<span class="ml-2 w-0 flex-1 truncate"> {{ fileName }} </span>
+											<span class="ml-2 w-0 flex-1 truncate"> {{ spreadsheetFile.path }} </span>
 										</div>
 										<div class="ml-4 flex-shrink-0">
 											<span
 												class="cursor-pointer font-medium text-primary-600 hover:text-primary-500"
-												@click="openFile(fileName)"
+												@click="openFile(spreadsheetFile.path)"
 											>
 												{{ $t('Open table') }}
 											</span>

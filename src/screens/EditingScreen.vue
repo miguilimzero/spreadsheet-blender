@@ -18,34 +18,10 @@
 
 		<TCard>
 			<div class="flex space-x-2 overflow-x-auto p-6">
-				<div
-					class="w-72 overflow-hidden rounded-lg border bg-white dark:bg-gray-800"
-					v-for="(fileName, index) in $root.project.tableFiles"
-					:key="fileName"
-				>
-					<div class="space-y-4 py-6 px-8">
-						<div class="flex justify-center">
-							<div class="rounded-full bg-primary-100 p-3 text-primary-600">
-								<DatabaseIcon class="h-8 w-8" />
-							</div>
-						</div>
+				<!-- Spreadsheet list display -->
+				<SpreadsheetCard :file="spreadsheetFile" v-for="spreadsheetFile in $root.project.spreadsheetList" :key="spreadsheetFile.path" />
 
-						<h4 class="text-center font-bold">Table {{ index + 1 }}</h4>
-
-						<TBadge color="gray">
-							{{ fileName }}
-						</TBadge>
-
-						<div class="flex justify-center space-x-2">
-							<TButtonPrimary> <CogIcon class="mr-2 h-4 w-4" /> Options </TButtonPrimary>
-							<TButtonWhite @click="$root.removeSpreadsheet(fileName)">
-								<TrashIcon class="h-4 w-4" />
-							</TButtonWhite>
-						</div>
-					</div>
-				</div>
-
-				<!-- Add new table -->
+				<!-- Add new spreadsheet -->
 				<input ref="file" type="file" class="hidden" @change="addNewSpreadsheet()" />
 
 				<SelectSpreadsheetButton class="w-72" @click="$refs.file.click()"> Add another spreadsheet </SelectSpreadsheetButton>
@@ -62,12 +38,12 @@
 </template>
 
 <script>
-import { BanIcon, CheckCircleIcon, TrashIcon, CogIcon } from '@heroicons/vue/solid'
-import { DatabaseIcon, PencilIcon, CheckIcon } from '@heroicons/vue/outline'
+import { BanIcon, CheckCircleIcon } from '@heroicons/vue/solid'
+import { PencilIcon, CheckIcon } from '@heroicons/vue/outline'
 
+import SpreadsheetCard from '@/components/SpreadsheetCard'
 import SelectSpreadsheetButton from '@/components/SelectSpreadsheetButton'
 
-import TBadge from '@/components/tailwind-components/TBadge'
 import TCard from '@/components/tailwind-components/TCard'
 import TInput from '@/components/tailwind-components/TInput'
 import TButtonIcon from '@/components/tailwind-components/TButtonIcon'
@@ -76,7 +52,6 @@ import TButtonWhite from '@/components/tailwind-components/TButtonWhite'
 
 export default {
 	components: {
-		TBadge,
 		TCard,
 		TInput,
 		TButtonIcon,
@@ -84,12 +59,10 @@ export default {
 		TButtonWhite,
 		BanIcon,
 		CheckCircleIcon,
-		DatabaseIcon,
 		PencilIcon,
 		CheckIcon,
+		SpreadsheetCard,
 		SelectSpreadsheetButton,
-		TrashIcon,
-		CogIcon,
 	},
 
 	data: () => ({
@@ -98,7 +71,7 @@ export default {
 
 	methods: {
 		addNewSpreadsheet() {
-			const success = this.$root.addSpreadsheet(this.$refs.file.files[0].path)
+			const success = this.$root.addSpreadsheet(this.$refs.file.files[0])
 
 			if (success) {
 				this.$refs.file.value = ''

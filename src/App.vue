@@ -4,7 +4,7 @@
 		<HistoryScreen v-if="historyScreen" />
 
 		<!-- First Screen Condition -->
-		<FirstSelectScreen v-else-if="project.tableFiles.length === 0" />
+		<FirstSelectScreen v-else-if="project.spreadsheetList.length === 0" />
 
 		<!-- Second Screen Condition -->
 		<EditingScreen v-else-if="project.resultFile === ''" />
@@ -51,19 +51,19 @@ export default {
 			this.project = {
 				historyHash: '',
 				name: '',
-				tableFiles: [],
+				spreadsheetList: [],
 				resultFile: '',
 			}
 		},
 
-		addSpreadsheet(path) {
-			this.project.tableFiles.push(path)
+		addSpreadsheet(spreadsheetFile) {
+			this.project.spreadsheetList.push(spreadsheetFile)
 
 			return true
 		},
 
 		removeSpreadsheet(path) {
-			this.project.tableFiles = this.project.tableFiles.filter(fileName => fileName !== path)
+			this.project.spreadsheetList = this.project.spreadsheetList.filter(spreadsheetFile => spreadsheetFile.path !== path)
 		},
 
 		finishProject() {
