@@ -12,12 +12,12 @@
 		</div>
 
 		<div class="flex justify-center">
-			<TBadge> {{ $root.project.resultFile }} </TBadge>
+			<TBadge @click="openFolder()"> {{ $root.project.resultFile }} </TBadge>
 		</div>
 
 		<div class="flex justify-center space-x-2">
 			<TButtonWhite @click="$root.resetApp()"> <RefreshIcon class="mr-2 h-4 w-4" /> Blend other spreedsheats </TButtonWhite>
-			<TButtonPrimary> <FolderIcon class="mr-2 h-4 w-4" /> Open target folder </TButtonPrimary>
+			<TButtonPrimary @click="openFolder()"> <FolderIcon class="mr-2 h-4 w-4" /> Open target folder </TButtonPrimary>
 		</div>
 	</div>
 </template>
@@ -30,6 +30,8 @@ import TBadge from '@/components/tailwind-components/TBadge'
 import TButtonPrimary from '@/components/tailwind-components/TButtonPrimary'
 import TButtonWhite from '@/components/tailwind-components/TButtonWhite'
 
+import { shell } from 'electron'
+
 export default {
 	components: {
 		TBadge,
@@ -39,5 +41,11 @@ export default {
 		CheckIcon,
 		FolderIcon,
 	},
+
+	computed: {
+		openFolder() {
+			shell.showItemInFolder(this.$root.project.resultFile)
+		},
+	}
 }
 </script>
