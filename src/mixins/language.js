@@ -35,9 +35,9 @@ export default {
 
 	methods: {
 		async initializeI18n() {
-			await loadLocaleMessages(this.i18n, this.currentLanguage)
+			await loadLocaleMessages(this.$i18n, this.currentLanguage)
 
-			setI18nLanguage(this.i18n, this.currentLanguage)
+			setI18nLanguage(this.$i18n, this.currentLanguage)
 		},
 	},
 }

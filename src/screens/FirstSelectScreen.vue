@@ -2,7 +2,7 @@
 	<div class="block">
 		<input ref="file" type="file" class="hidden" @change="addFirstSpreadsheet()" />
 
-		<SelectSpreadsheetButton @click="$refs.file.click()"> Select a new Spreadsheet to start </SelectSpreadsheetButton>
+		<SelectSpreadsheetButton @click="$refs.file.click()"> {{ $t("Select a new Spreadsheet to start") }} </SelectSpreadsheetButton>
 	</div>
 
 	<TopRightButtonGroup>
