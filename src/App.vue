@@ -1,8 +1,8 @@
 <template>
-	<div class="bg-gray-50 px-4 dark:bg-gray-700">
+	<div class="bg-gray-50 dark:bg-gray-700">
 		<TopBar />
 
-		<div class="mx-auto h-screen items-center justify-center">
+		<div class="px-6">
 			<!-- Exception ~ History Screen -->
 			<HistoryScreen v-if="historyScreen" />
 
@@ -16,7 +16,7 @@
 			<FinishedScreen v-else />
 		</div>
 
-		<BottomBar v-if="project.spreadsheetList.length !== 0" />
+		<BottomBar v-if="project.spreadsheetList.length !== 0 && project.resultFile === ''" />
 	</div>
 </template>
 

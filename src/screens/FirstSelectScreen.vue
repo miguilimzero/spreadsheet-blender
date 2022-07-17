@@ -1,8 +1,10 @@
 <template>
-	<div class="block">
-		<input ref="file" type="file" class="hidden" @change="addFirstSpreadsheet()" />
+	<div class="mx-auto flex h-screen items-center justify-center -mt-[70px]">
+		<div class="block">
+			<input ref="file" type="file" class="hidden" @change="addFirstSpreadsheet()" />
 
-		<SelectSpreadsheetButton @click="$refs.file.click()"> {{ $t('Select a new spreadsheet to start') }} </SelectSpreadsheetButton>
+			<SelectSpreadsheetButton @click="$refs.file.click()"> {{ $t('Select a new spreadsheet to start') }} </SelectSpreadsheetButton>
+		</div>
 	</div>
 </template>
 

@@ -1,4 +1,5 @@
 <template>
+<div class="mx-auto flex h-screen items-center justify-center -mt-[70px]">
 	<div class="block space-y-10">
 		<div class="flex justify-center">
 			<div class="rounded-full bg-green-100 p-5">
@@ -24,6 +25,7 @@
 			<TButtonPrimary @click="openResultFile()"> <ArchiveIcon class="mr-2 h-4 w-4" /> {{ $t('Open result file') }} </TButtonPrimary>
 		</div>
 	</div>
+</div>
 </template>
 
 <script>

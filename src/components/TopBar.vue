@@ -1,5 +1,5 @@
 <template>
-	<div class="flex justify-between py-4 px-4">
+	<div class="flex justify-between py-4 px-6">
 		<div class="flex items-center space-x-4">
 			<h2 class="font-bold tracking-tighter" v-if="$root.project.spreadsheetList.length === 0">Spreadsheet Blender</h2>
 
@@ -14,7 +14,7 @@
 			</template>
 		</div>
 
-		<div class="flex items-center space-x-4">
+		<div class="relative flex items-center space-x-4">
 			<LanguageSelector />
 
 			<ThemeSelector />
