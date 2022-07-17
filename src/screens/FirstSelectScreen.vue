@@ -2,7 +2,7 @@
 	<div class="block">
 		<input ref="file" type="file" class="hidden" @change="addFirstSpreadsheet()" />
 
-		<SelectSpreadsheetButton @click="$refs.file.click()"> {{ $t("Select a new Spreadsheet to start") }} </SelectSpreadsheetButton>
+		<SelectSpreadsheetButton @click="$refs.file.click()"> {{ $t('Select a new Spreadsheet to start') }} </SelectSpreadsheetButton>
 	</div>
 
 	<TopRightButtonGroup>
@@ -37,12 +37,15 @@ export default {
 
 	methods: {
 		addFirstSpreadsheet() {
-			this.$root.project.name = 'Untitled Project'
-			this.$root.addSpreadsheet(this.$refs.file.files[0].path)
+			const success = this.$root.addSpreadsheet(this.$refs.file.files[0].path)
 
-			const historyHash = this.$root.appendProjectToHistory(this.$root.project)
+			if (success) {
+				this.$root.project.name = 'Untitled Project'
 
-			this.$root.project.historyHash = historyHash
+				const historyHash = this.$root.appendProjectToHistory(this.$root.project)
+
+				this.$root.project.historyHash = historyHash
+			}
 		},
 	},
 }

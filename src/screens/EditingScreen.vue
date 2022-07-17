@@ -25,7 +25,7 @@
 				>
 					<div class="space-y-4 py-6 px-8">
 						<div class="flex justify-center">
-							<div class="rounded-full bg-indigo-100 p-3 text-indigo-600">
+							<div class="rounded-full bg-primary-100 p-3 text-primary-600">
 								<DatabaseIcon class="h-8 w-8" />
 							</div>
 						</div>
@@ -98,9 +98,11 @@ export default {
 
 	methods: {
 		addNewSpreadsheet() {
-			this.$root.addSpreadsheet(this.$refs.file.files[0].path)
+			const success = this.$root.addSpreadsheet(this.$refs.file.files[0].path)
 
-			this.$refs.file.value = ''
+			if(success) {
+				this.$refs.file.value = ''
+			}
 		},
 	},
 }

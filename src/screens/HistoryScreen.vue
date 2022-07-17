@@ -4,7 +4,7 @@
 			<TCard v-for="project in $root.historyList" :key="project.historyHash">
 				<div class="flex justify-between border-b px-6 py-4">
 					<div class="flex items-center space-x-4">
-						<div class="rounded-full bg-indigo-100 p-2 text-indigo-600">
+						<div class="rounded-full bg-primary-100 p-2 text-primary-600">
 							<DatabaseIcon class="h-5 w-5" />
 						</div>
 
@@ -30,7 +30,7 @@
 							<dt class="text-sm font-medium text-gray-500">Result File</dt>
 							<dd class="mt-1 sm:col-span-2 sm:mt-0">
 								<span
-									class="cursor-pointer text-sm font-medium text-indigo-600 hover:text-indigo-500"
+									class="cursor-pointer text-sm font-medium text-primary-600 hover:text-primary-500"
 									v-if="project.resultFile"
 								>
 									{{ project.resultFile }}
@@ -55,7 +55,7 @@
 											<span class="ml-2 w-0 flex-1 truncate"> {{ fileName }} </span>
 										</div>
 										<div class="ml-4 flex-shrink-0">
-											<span class="cursor-pointer font-medium text-indigo-600 hover:text-indigo-500">
+											<span class="cursor-pointer font-medium text-primary-600 hover:text-primary-500" @click="openFile(fileName)">
 												Open table
 											</span>
 										</div>
@@ -100,6 +100,8 @@ import TCard from '@/components/tailwind-components/TCard'
 import TButtonPrimary from '@/components/tailwind-components/TButtonPrimary'
 import TButtonWhite from '@/components/tailwind-components/TButtonWhite'
 
+import { shell } from 'electron'
+
 export default {
 	components: {
 		TopRightButtonGroup,
@@ -125,6 +127,10 @@ export default {
 			this.$root.project.resultFile = '' // Do not recover result file to not move user to last page
 
 			this.$root.historyScreen = false
+		},
+
+		openFile(path) {
+			shell.showItemInFolder(path)
 		},
 	},
 }

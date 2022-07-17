@@ -58,6 +58,8 @@ export default {
 
 		addSpreadsheet(path) {
 			this.project.tableFiles.push(path)
+
+			return true
 		},
 
 		removeSpreadsheet(path) {
