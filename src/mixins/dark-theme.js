@@ -6,7 +6,7 @@ export default {
 	created() {
 		this.currentTheme = localStorage.theme
 
-		if(this.currentTheme !== 'dark' && this.currentTheme !== 'light') {
+		if (this.currentTheme !== 'dark' && this.currentTheme !== 'light') {
 			this.currentTheme = 'system'
 		}
 	},
@@ -14,7 +14,7 @@ export default {
 	watch: {
 		currentTheme() {
 			this.updateTheme()
-		}
+		},
 	},
 
 	methods: {
