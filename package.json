@@ -1,7 +1,7 @@
 {
 	"name": "spreadsheet-blender",
-	"description": "",
-	"author": "",
+	"description": "Um mesclador de dados planinhas feito para ser prático. Desenvolvido em Electron.",
+	"author": "furg-c3",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {

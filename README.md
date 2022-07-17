@@ -17,7 +17,8 @@ Para o desenvolvimento do projeto, foram utilizadas as seguintes principais tecn
 Tambem foi utilizado a ferramenta [Prettier](https://prettier.io/) com a extensão de [Ordenação de classes](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier) 
 da Tailwind CSS para uma melhor padronização dos arquivos. 
 
-Tambem foi utilizada a fonte [heroIcons](https://heroicons.com/) para todos os ícones utilizados no projeto.
+Tambem foi utilizada a fonte [heroIcons](https://heroicons.com/) para todos os ícones utilizados no projeto. Com exceção das bandeiras, que nesse caso,
+foi utilizado o [Pack de bandeiras arredondadas](https://www.flaticon.com/packs/countrys-flags) disponibilizado pelo Flaticon.
 
 ## Fazer setup do projeto
 
@@ -68,7 +69,7 @@ npm run electron:build-windows
 
 ## Como contribuir
 
-Obrigado por considerar contribuir para o Spreadsheet Blender. Todas as diretrizes de contribuição são mencionadas [aqui](CONTRIBUTING.md).
+Obrigado por considerar contribuir para o projeto. Todas as diretrizes de contribuição são mencionadas [aqui](CONTRIBUTING.md).
 
 ## Licença
 
