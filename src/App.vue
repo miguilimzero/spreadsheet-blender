@@ -77,7 +77,13 @@ export default {
 		},
 
 		addSpreadsheet(spreadsheetFile) {
-			this.project.spreadsheetList.push(spreadsheetFile)
+			const simpleObject = {}
+
+			for (const key in spreadsheetFile) {
+				simpleObject[key] = spreadsheetFile[key]
+			}
+
+			this.project.spreadsheetList.push(simpleObject)
 
 			return true
 		},

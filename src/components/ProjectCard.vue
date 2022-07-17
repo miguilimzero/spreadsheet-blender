@@ -1,5 +1,5 @@
 <template>
-	<TCard v-for="project in $root.historyList" :key="project.historyHash">
+	<TCard>
 		<div class="flex justify-between border-b px-6 py-4">
 			<div class="flex items-center space-x-4">
 				<div class="rounded-full bg-primary-100 p-2 text-primary-600 dark:bg-primary-900 dark:text-primary-300">
@@ -9,7 +9,7 @@
 				<div class="flex items-center space-x-2">
 					<h3 class="font-semibold">{{ project.name }}</h3>
 					<p class="font-medium">-</p>
-					<p class="font-medium">{{ project.lastEditAt.toLocaleString() }}</p>
+					<p class="font-medium">{{ new Date(project.lastEditAt).toLocaleString() }}</p>
 				</div>
 			</div>
 
@@ -82,6 +82,13 @@ import TButtonPrimary from '@/components/tailwind-components/TButtonPrimary'
 import TButtonWhite from '@/components/tailwind-components/TButtonWhite'
 
 export default {
+	props: {
+		project: {
+			type: Object,
+			required: true,
+		}
+	},
+
 	components: {
 		TCard,
 		TButtonPrimary,

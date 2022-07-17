@@ -19,7 +19,7 @@
 
 		<template v-else>
 			<div class="space-y-4">
-				<ProjectCard v-for="project in $root.historyList" :key="project.historyHash" />
+				<ProjectCard v-for="project in $root.historyList" :key="project.historyHash" :project="project" />
 			</div>
 
 			<p class="my-10 text-center text-base">
