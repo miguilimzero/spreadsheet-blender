@@ -1,6 +1,6 @@
 # Spreadsheet Blender
 
-Spreadsheet blender é um programa feito em Electron durante a aula de Atividade de Integração Curricular 2 do curso de Sistemas de Informação na FURG.
+Spreadsheet blender é um programa desenvolvido em Electron durante a aula de Atividade de Integração Curricular 2 do curso de Sistemas de Informação no C3 da FURG.
 
 Esse programa tem como objetivo facilitar a mesclagem de diferentes tabelas CSV e Excel, apartir de uma coluna principal, que podem conter erros e pequenas diferenças.
 O programa utiliza do algorítimo de Levenshtein para fazer a mesclagem, podendo configurar a diferença maxima entre os valores das tabelas.
@@ -9,6 +9,7 @@ O programa utiliza do algorítimo de Levenshtein para fazer a mesclagem, podendo
 
 Para o desenvolvimento do projeto, foram utilizadas as seguintes principais tecnologias:
 
+- Node.js
 - Electron
 - Vue.js
 - Tailwind CSS
@@ -39,6 +40,30 @@ npm run electron:serve
 ``` 
 
 ## Compilar para distribuição
+
+Para compilar e empacotar o programar para distribuição, você deve ter em mente para qual sistema operacial você está querendo fazer isso.
+O comando de compilação normal, vai compilar para o sistema que você esta rodando no computador:
+
+```bash
+npm run electron:build
+```
+
+Agora se você quer compilar para outros sistemas operacionais, abaixo estão listados os comandos necessários para os 3 principais:
+
+Linux:
+```bash
+npm run electron:build-linux
+```
+
+Mac OS:
+```bash
+npm run electron:build-macos
+```
+
+Windows:
+```bash
+npm run electron:build-windows
+```
 
 
 ## Como contribuir
