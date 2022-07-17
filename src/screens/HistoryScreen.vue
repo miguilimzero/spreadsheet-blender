@@ -89,18 +89,12 @@
 			{{ $t('History page is limited to the last {number} projects added or edited!', { number: $root.historySizeLimit }) }}
 		</p>
 	</div>
-
-	<TopRightButtonGroup>
-		<TButtonWhite @click="$root.historyScreen = false"> <LogoutIcon class="mr-2 h-4 w-4" /> {{ $t('Back') }} </TButtonWhite>
-	</TopRightButtonGroup>
 </template>
 
 <script>
-import { LogoutIcon, FolderIcon, TrashIcon, TableIcon } from '@heroicons/vue/solid'
+import {FolderIcon, TrashIcon, TableIcon } from '@heroicons/vue/solid'
 
 import { ExclamationIcon, DatabaseIcon } from '@heroicons/vue/outline'
-
-import TopRightButtonGroup from '@/components/TopRightButtonGroup'
 
 import TCard from '@/components/tailwind-components/TCard'
 import TButtonPrimary from '@/components/tailwind-components/TButtonPrimary'
@@ -110,11 +104,9 @@ import { shell } from 'electron'
 
 export default {
 	components: {
-		TopRightButtonGroup,
 		TCard,
 		TButtonPrimary,
 		TButtonWhite,
-		LogoutIcon,
 		FolderIcon,
 		TrashIcon,
 		TableIcon,

@@ -1,16 +1,22 @@
 <template>
 	<div class="mx-auto flex h-screen items-center justify-center bg-gray-50 px-4 dark:bg-gray-700">
-		<!-- Exception ~ History Screen -->
-		<HistoryScreen v-if="historyScreen" />
+		<TopBar />
 
-		<!-- First Screen Condition -->
-		<FirstSelectScreen v-else-if="project.spreadsheetList.length === 0" />
+		<div>
+			<!-- Exception ~ History Screen -->
+			<HistoryScreen v-if="historyScreen" />
 
-		<!-- Second Screen Condition -->
-		<EditingScreen v-else-if="project.resultFile === ''" />
+			<!-- First Screen Condition -->
+			<FirstSelectScreen v-else-if="project.spreadsheetList.length === 0" />
 
-		<!-- Third Screen Condition -->
-		<FinishedScreen v-else />
+			<!-- Second Screen Condition -->
+			<EditingScreen v-else-if="project.resultFile === ''" />
+
+			<!-- Third Screen Condition -->
+			<FinishedScreen v-else />
+		</div>
+
+		<BottomBar v-if="project.spreadsheetList.length !== 0" />
 	</div>
 </template>
 
@@ -20,6 +26,9 @@ import EditingScreen from './screens/EditingScreen'
 import FinishedScreen from './screens/FinishedScreen'
 
 import HistoryScreen from './screens/HistoryScreen'
+
+import TopBar from './components/TopBar'
+import BottomBar from './components/BottomBar'
 
 import HistoryMixin from './mixins/history'
 import DarkThemeMixin from './mixins/dark-theme'
@@ -40,6 +49,8 @@ export default {
 		EditingScreen,
 		FinishedScreen,
 		HistoryScreen,
+		TopBar,
+		BottomBar
 	},
 
 	created() {
