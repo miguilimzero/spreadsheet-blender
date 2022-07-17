@@ -42,7 +42,7 @@ npm run electron:serve
 ## Compilar para distribuição
 
 Para compilar e empacotar o programar para distribuição, você deve ter em mente para qual sistema operacial você está querendo fazer isso.
-O comando de compilação normal, vai compilar para o sistema que você esta rodando no computador:
+O comando de compilação padrão, vai compilar para o sistema que você esta rodando no seu computador atual:
 
 ```bash
 npm run electron:build
@@ -50,17 +50,17 @@ npm run electron:build
 
 Agora se você quer compilar para outros sistemas operacionais, abaixo estão listados os comandos necessários para os 3 principais:
 
-Linux:
+**Linux:**
 ```bash
 npm run electron:build-linux
 ```
 
-Mac OS:
+**Mac OS:**
 ```bash
 npm run electron:build-macos
 ```
 
-Windows:
+**Windows:**
 ```bash
 npm run electron:build-windows
 ```
