@@ -10,18 +10,18 @@ export default {
 
 	watch: {
 		watchProjectChangeTrick() {
-			if (this.historyHash === '') {
+			if(this.project.historyHash === '') {
 				return
 			}
 
-			this.updateProjectOnHistory(this.historyHash, this.projectName, this.tableFiles, this.resultFile)
+			this.updateProjectOnHistory(this.project)
 		},
 	},
 
 	computed: {
 		watchProjectChangeTrick() {
 			// Trick used to watch multiple data with single handler
-			return JSON.stringify([this.historyHash, this.projectName, this.tableFiles, this.resultFile])
+			return JSON.stringify([this.project.historyHash, this.project.name, this.project.tableFiles, this.project.resultFile])
 		},
 	},
 
@@ -31,16 +31,16 @@ export default {
 		},
 
 		// History manipulation
-		appendProjectToHistory(name, tableFiles, resultFile) {
+		appendProjectToHistory(project) {
 			let historyList = this.getRawHistory()
 
 			const newHistoryHash = this.generateNewHistoryHash()
 
 			historyList.unshift({
 				historyHash: newHistoryHash,
-				name: name,
-				tableFiles: tableFiles,
-				resultFile: resultFile,
+				name: project.name,
+				tableFiles: project.tableFiles,
+				resultFile: project.resultFile,
 				lastEditAt: new Date(),
 			})
 
@@ -49,18 +49,18 @@ export default {
 			return newHistoryHash
 		},
 
-		updateProjectOnHistory(historyHash, name, tableFiles, resultFile) {
+		updateProjectOnHistory(project) {
 			let historyList = this.getRawHistory()
 
-			historyList[this.findProjectArrayKey(historyHash)] = {
-				historyHash: historyHash,
-				name: name,
-				tableFiles: tableFiles,
-				resultFile: resultFile,
+			historyList[this.findProjectArrayKey(project.historyHash)] = {
+				historyHash: project.historyHash,
+				name: project.name,
+				tableFiles: project.tableFiles,
+				resultFile: project.resultFile,
 				lastEditAt: new Date(),
 			}
 
-			// TODO: Reorder by lastEditAt
+			historyList.sort((a, b) => b.lastEditAt - a.lastEditAt)
 
 			this.saveRawHistory(historyList)
 		},

@@ -91,12 +91,9 @@ export default {
 		},
 
 		recoverProject(historyHash) {
-			const projectData = this.$root.getProjectFromHistory(historyHash)
+			this.$root.project = this.$root.getProjectFromHistory(historyHash)
 
-			this.$root.historyHash = projectData.historyHash
-			this.$root.projectName = projectData.name
-			this.$root.tableFiles = projectData.tableFiles
-			this.$root.resultFile = '' // Do not recover result file to not move user to last page
+			this.$root.project.resultFile = '' // Do not recover result file to not move user to last page
 
 			this.$root.historyScreen = false
 		},

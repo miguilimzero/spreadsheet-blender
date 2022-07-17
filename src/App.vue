@@ -4,10 +4,10 @@
 		<HistoryScreen v-if="historyScreen" />
 
 		<!-- First Screen Condition -->
-		<FirstSelectScreen v-else-if="tableFiles.length === 0" />
+		<FirstSelectScreen v-else-if="project.tableFiles.length === 0" />
 
 		<!-- Second Screen Condition -->
-		<EditingScreen v-else-if="resultFile === ''" />
+		<EditingScreen v-else-if="project.resultFile === ''" />
 
 		<!-- Third Screen Condition -->
 		<FinishedScreen v-else />
@@ -31,11 +31,7 @@ export default {
 		historyScreen: false,
 		language: 'US',
 
-		// Project data
-		historyHash: '',
-		projectName: '',
-		tableFiles: [],
-		resultFile: '',
+		project: {}
 	}),
 
 	mixins: [HistoryMixin, DarkThemeMixin],
@@ -47,11 +43,18 @@ export default {
 		HistoryScreen,
 	},
 
+	created() {
+		this.resetApp()
+	},
+
 	methods: {
 		resetApp() {
-			this.historyHash = ''
-			this.tableFiles = []
-			this.resultFile = ''
+			this.project = {
+				historyHash: 'null',
+				name: '',
+				tableFiles: [],
+				resultFile: '',
+			}
 		},
 	},
 }

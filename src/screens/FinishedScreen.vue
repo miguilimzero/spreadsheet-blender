@@ -12,12 +12,12 @@
 		</div>
 
 		<div class="flex justify-center">
-			<TBadge> C:\Users\Rafaela\Área de Trabalho\Minhas Planinhas\Resultado.csv </TBadge>
+			<TBadge> {{ $root.project.resultFile }} </TBadge>
 		</div>
 
 		<div class="flex justify-center space-x-2">
-			<TButtonWhite> <FolderIcon class="mr-2 h-4 w-4" /> Open target folder </TButtonWhite>
-			<TButtonPrimary @click="$root.resetApp()"> <RefreshIcon class="mr-2 h-4 w-4" /> Blend other spreedsheats </TButtonPrimary>
+			<TButtonWhite @click="$root.resetApp()"> <RefreshIcon class="mr-2 h-4 w-4" /> Blend other spreedsheats </TButtonWhite>
+			<TButtonPrimary> <FolderIcon class="mr-2 h-4 w-4" /> Open target folder </TButtonPrimary>
 		</div>
 	</div>
 </template>

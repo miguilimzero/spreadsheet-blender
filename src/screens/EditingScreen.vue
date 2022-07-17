@@ -2,8 +2,8 @@
 	<div class="block w-full">
 		<div class="flex justify-between">
 			<div class="flex items-center space-x-4">
-				<TInput type="text" v-model="$root.projectName" v-if="editingTitle" />
-				<h2 v-else>{{ $root.projectName }}</h2>
+				<TInput type="text" v-model="$root.project.name" v-if="editingTitle" />
+				<h2 v-else>{{ $root.project.name }}</h2>
 
 				<TButtonIcon @click="editingTitle = !editingTitle">
 					<CheckIcon class="h-6 w-6" v-if="editingTitle" />
@@ -18,7 +18,7 @@
 
 		<TCard>
 			<div class="flex space-x-2 p-6">
-				<TCard v-for="fileName in $root.tableFiles" :key="fileName">
+				<TCard v-for="fileName in $root.project.tableFiles" :key="fileName">
 					<div class="space-y-4 p-4">
 						<DatabaseIcon class="h-10 w-10" />
 					</div>
@@ -34,7 +34,7 @@
 
 	<div class="fixed bottom-0 flex w-screen justify-between border-t bg-white px-6 py-4 dark:bg-gray-800">
 		<TButtonWhite @click="$root.resetApp()"> <BanIcon class="mr-2 h-4 w-4" /> Cancel </TButtonWhite>
-		<TButtonPrimary @click="$root.resultFile = 'x'"> <CheckCircleIcon class="mr-2 h-4 w-4" /> Finish </TButtonPrimary>
+		<TButtonPrimary @click="finishProjectBlending()"> <CheckCircleIcon class="mr-2 h-4 w-4" /> Finish </TButtonPrimary>
 	</div>
 </template>
 
@@ -73,6 +73,10 @@ export default {
 		removeTableFromList() {},
 
 		addTableToList() {},
+
+		finishProjectBlending() {
+			this.$root.project.resultFile = 'C:\\Users\\Rafaela\\Área de Trabalho\\Minhas Planinhas\\Resultado.csv'
+		},
 	},
 }
 </script>

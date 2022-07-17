@@ -39,12 +39,12 @@ export default {
 
 	methods: {
 		selectFirstSpreadsheet() {
-			this.$root.tableFiles = ['x']
-			this.$root.projectName = 'Untitled Project'
+			this.$root.project.tableFiles = ['x']
+			this.$root.project.name = 'Untitled Project'
 
-			const historyHash = this.$root.appendProjectToHistory(this.$root.projectName, this.$root.tableFiles, this.$root.resultFile)
+			const historyHash = this.$root.appendProjectToHistory(this.$root.project)
 
-			this.$root.historyHash = historyHash
+			this.$root.project.historyHash = historyHash
 		},
 	},
 }
