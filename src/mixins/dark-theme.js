@@ -4,18 +4,22 @@ export default {
 	}),
 
 	created() {
-		// this.applyTheme()
+		this.currentTheme = localStorage.theme
+
+		if(this.currentTheme !== 'dark' && this.currentTheme !== 'light') {
+			this.currentTheme = 'system'
+		}
+	},
+
+	watch: {
+		currentTheme() {
+			this.updateTheme()
+		}
 	},
 
 	methods: {
-		changeTheme(newValue) {
-			localStorage.theme = newValue
-
-			this.applyTheme()
-		},
-
-		applyTheme() {
-			this.currentTheme = localStorage.theme
+		updateTheme() {
+			localStorage.theme = this.currentTheme
 
 			if (this.currentTheme === 'dark') {
 				document.querySelector('html').classList.add('dark')

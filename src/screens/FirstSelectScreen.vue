@@ -13,6 +13,8 @@
 			Language
 		</TButtonWhite>
 
+		<ThemeSelector />
+
 		<TButtonWhite @click="$root.historyScreen = true"> <ClockIcon class="mr-2 h-4 w-4" /> History </TButtonWhite>
 	</TopRightButtonGroup>
 </template>
@@ -27,10 +29,13 @@ import TButtonWhite from '@/components/tailwind-components/TButtonWhite'
 import UsaFlag from '@/components/country-flags/UsaFlag'
 import BrazilFlag from '@/components/country-flags/BrazilFlag'
 
+import ThemeSelector from '@/components/ThemeSelector'
+
 export default {
 	components: {
 		TopRightButtonGroup,
 		SelectSpreadsheetButton,
+		ThemeSelector,
 
 		ClockIcon,
 		TButtonWhite,

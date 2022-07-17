@@ -18,6 +18,7 @@
 	},
 	"main": "background.js",
 	"dependencies": {
+		"@headlessui/vue": "^1.6.7",
 		"@heroicons/vue": "^1.0.6",
 		"autoprefixer": "^10.4.7",
 		"core-js": "^3.23.4",
