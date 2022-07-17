@@ -23,18 +23,17 @@ import HistoryScreen from './screens/HistoryScreen'
 
 import HistoryMixin from './mixins/history'
 import DarkThemeMixin from './mixins/dark-theme'
+import LanguageMixin from './mixins/language'
 
 export default {
 	name: 'App',
 
 	data: () => ({
 		historyScreen: false,
-		language: 'US',
-
 		project: {},
 	}),
 
-	mixins: [HistoryMixin, DarkThemeMixin],
+	mixins: [HistoryMixin, DarkThemeMixin, LanguageMixin],
 
 	components: {
 		FirstSelectScreen,

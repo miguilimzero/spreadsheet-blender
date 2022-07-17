@@ -6,12 +6,7 @@
 	</div>
 
 	<TopRightButtonGroup>
-		<TButtonWhite>
-			<UsaFlag class="mr-2 h-5 w-5" v-if="$root.language === 'US'" />
-			<BrazilFlag class="mr-2 h-5 w-5" v-if="$root.language === 'BR'" />
-
-			Language
-		</TButtonWhite>
+		<LanguageSelector />
 
 		<ThemeSelector />
 
@@ -26,22 +21,18 @@ import SelectSpreadsheetButton from '@/components/SelectSpreadsheetButton'
 
 import TButtonWhite from '@/components/tailwind-components/TButtonWhite'
 
-import UsaFlag from '@/components/country-flags/UsaFlag'
-import BrazilFlag from '@/components/country-flags/BrazilFlag'
-
 import ThemeSelector from '@/components/ThemeSelector'
+import LanguageSelector from '@/components/LanguageSelector'
 
 export default {
 	components: {
 		TopRightButtonGroup,
 		SelectSpreadsheetButton,
 		ThemeSelector,
+		LanguageSelector,
 
 		ClockIcon,
 		TButtonWhite,
-
-		UsaFlag,
-		BrazilFlag,
 	},
 
 	methods: {
