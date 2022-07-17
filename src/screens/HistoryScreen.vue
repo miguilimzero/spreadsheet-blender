@@ -2,37 +2,61 @@
 	<div class="block w-full py-10">
 		<div class="space-y-4">
 			<TCard v-for="project in $root.historyList" :key="project.historyHash">
-				<div class="flex justify-between px-6 py-6">
-					<div class="block">
-						<div class="mb-4 flex items-center space-x-2">
-							<h3 class="font-bold">{{ project.name }}</h3>
+				<div class="flex justify-between px-6 py-4 border-b">
+					<div class="flex items-center space-x-4">
+						<div class="bg-indigo-100 text-indigo-600 p-2 rounded-full">
+							<DatabaseIcon class="w-5 h-5" />
+						</div>
+
+						<div class="flex items-center space-x-2">
+							<h3 class="font-semibold">{{ project.name }}</h3>
 							<p class="font-medium">-</p>
 							<p class="font-medium">{{ project.lastEditAt.toLocaleString() }}</p>
 						</div>
-
-						<p class="mb-1">Source files ({{ project.tableFiles.length }} tables):</p>
-						<div class="mb-4 grid space-y-2">
-							<TBadge class="flex items-center" size="sm" v-for="fileName in project.tableFiles" :key="fileName">
-								<TableIcon class="mr-1 h-5 w-5" /> {{ fileName }}
-							</TBadge>
-						</div>
-
-						<p class="mb-1">Destination file:</p>
-						<TBadge class="flex items-center" color="gray" v-if="project.resultFile === ''">
-							<ArchiveIcon class="mr-1 h-5 w-5" /> No result file generated yet!
-						</TBadge>
-						<TBadge class="flex items-center" v-else> <TableIcon class="mr-1 h-5 w-5" /> {{ project.resultFile }} </TBadge>
 					</div>
 
-					<div class="grid content-between">
+					<div class="flex space-x-2">
 						<TButtonPrimary @click="recoverProject(project.historyHash)">
 							<RewindIcon class="mr-2 h-4 w-4" /> Recover project
 						</TButtonPrimary>
-
 						<TButtonWhite @click="deleteProject(project.historyHash)">
-							<TrashIcon class="mr-2 h-4 w-4" /> Delete from history
+							<TrashIcon class="h-4 w-4" />
 						</TButtonWhite>
 					</div>
+				</div>
+				<div>
+					<dl>
+						<div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+							<dt class="text-sm font-medium text-gray-500">Result File</dt>
+							<dd class="mt-1 sm:mt-0 sm:col-span-2">
+								<span class="text-sm font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer" v-if="project.resultFile">
+									{{ project.resultFile }}
+								</span>
+								<span class="text-sm font-medium text-gray-900" v-else>
+									No result file generated yet!
+								</span>
+							</dd>
+						</div>
+					</dl>
+
+					<dl>
+						<div class="border-t px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+							<dt class="text-sm font-medium text-gray-500">Table Files</dt>
+							<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+								<ul role="list" class="border border-gray-200 rounded-md divide-y divide-gray-200">
+									<li class="pl-3 pr-4 py-2 flex items-center justify-between text-sm" v-for="fileName in project.tableFiles" :key="fileName">
+										<div class="w-0 flex-1 flex items-center">
+											<TableIcon class="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" />
+											<span class="ml-2 flex-1 w-0 truncate"> {{ fileName }} </span>
+										</div>
+										<div class="ml-4 flex-shrink-0">
+											<span class="cursor-pointer font-medium text-indigo-600 hover:text-indigo-500"> Open table </span>
+										</div>
+									</li>
+								</ul>
+							</dd>
+						</div>
+					</dl>
 				</div>
 			</TCard>
 		</div>
@@ -59,14 +83,14 @@
 </template>
 
 <script>
-import { LogoutIcon, RewindIcon, TrashIcon, TableIcon, ArchiveIcon } from '@heroicons/vue/solid'
+import { LogoutIcon, RewindIcon, TrashIcon, TableIcon } from '@heroicons/vue/solid'
 
-import { ExclamationIcon } from '@heroicons/vue/outline'
+import { ExclamationIcon, DatabaseIcon } from '@heroicons/vue/outline'
 
 import TopRightButtonGroup from '@/components/TopRightButtonGroup'
 
 import TCard from '@/components/tailwind-components/TCard'
-import TBadge from '@/components/tailwind-components/TBadge'
+// import TBadge from '@/components/tailwind-components/TBadge'
 import TButtonPrimary from '@/components/tailwind-components/TButtonPrimary'
 import TButtonWhite from '@/components/tailwind-components/TButtonWhite'
 
@@ -74,15 +98,16 @@ export default {
 	components: {
 		TopRightButtonGroup,
 		TCard,
-		TBadge,
+		// TBadge,
 		TButtonPrimary,
 		TButtonWhite,
 		LogoutIcon,
 		RewindIcon,
 		TrashIcon,
 		TableIcon,
-		ArchiveIcon,
+		// ArchiveIcon,
 		ExclamationIcon,
+		DatabaseIcon,
 	},
 
 	methods: {
