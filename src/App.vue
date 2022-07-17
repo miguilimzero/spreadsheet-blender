@@ -50,11 +50,23 @@ export default {
 	methods: {
 		resetApp() {
 			this.project = {
-				historyHash: 'null',
+				historyHash: '',
 				name: '',
 				tableFiles: [],
 				resultFile: '',
 			}
+		},
+
+		addSpreadsheet(path) {
+			this.project.tableFiles.push(path)
+		},
+
+		removeSpreadsheet(path) {
+			this.project.tableFiles = this.project.tableFiles.filter(fileName => fileName !== path)
+		},
+
+		finishProject() {
+			this.$root.project.resultFile = 'C:\\Users\\Rafaela\\Área de Trabalho\\Minhas Planinhas\\Resultado.csv'
 		},
 	},
 }

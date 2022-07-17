@@ -1,6 +1,8 @@
 <template>
 	<div class="block">
-		<SelectSpreadsheetButton @click="selectFirstSpreadsheet()"> Select a new Spreadsheet Table </SelectSpreadsheetButton>
+		<input ref="file" type="file" class="hidden" @change="addFirstSpreadsheet()" />
+
+		<SelectSpreadsheetButton @click="$refs.file.click()"> Select a new Spreadsheet to start </SelectSpreadsheetButton>
 	</div>
 
 	<TopRightButtonGroup>
@@ -38,9 +40,9 @@ export default {
 	},
 
 	methods: {
-		selectFirstSpreadsheet() {
-			this.$root.project.tableFiles = ['x']
+		addFirstSpreadsheet() {
 			this.$root.project.name = 'Untitled Project'
+			this.$root.addSpreadsheet(this.$refs.file.files[0].path)
 
 			const historyHash = this.$root.appendProjectToHistory(this.$root.project)
 

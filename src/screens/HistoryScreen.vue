@@ -90,7 +90,6 @@ import { ExclamationIcon, DatabaseIcon } from '@heroicons/vue/outline'
 import TopRightButtonGroup from '@/components/TopRightButtonGroup'
 
 import TCard from '@/components/tailwind-components/TCard'
-// import TBadge from '@/components/tailwind-components/TBadge'
 import TButtonPrimary from '@/components/tailwind-components/TButtonPrimary'
 import TButtonWhite from '@/components/tailwind-components/TButtonWhite'
 
@@ -98,14 +97,12 @@ export default {
 	components: {
 		TopRightButtonGroup,
 		TCard,
-		// TBadge,
 		TButtonPrimary,
 		TButtonWhite,
 		LogoutIcon,
 		RewindIcon,
 		TrashIcon,
 		TableIcon,
-		// ArchiveIcon,
 		ExclamationIcon,
 		DatabaseIcon,
 	},
