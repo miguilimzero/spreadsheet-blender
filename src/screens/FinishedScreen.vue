@@ -7,8 +7,10 @@
 		</div>
 
 		<div class="space-y-4">
-			<h1 class="text-center">{{ $t("Merge Completed") }}</h1>
-			<p class="text-center">{{ $t("Congratulations you merged all selected spreadsheets. You can find the result in the path below:") }}</p>
+			<h1 class="text-center">{{ $t('Merge Completed') }}</h1>
+			<p class="text-center">
+				{{ $t('Congratulations you merged all selected spreadsheets. You can find the result in the path below:') }}
+			</p>
 		</div>
 
 		<div class="flex justify-center">
@@ -16,8 +18,10 @@
 		</div>
 
 		<div class="flex justify-center space-x-2">
-			<TButtonWhite @click="$root.resetApp()"> <RefreshIcon class="mr-2 h-4 w-4" /> {{ $t("Blend other spreadsheets") }} </TButtonWhite>
-			<TButtonPrimary @click="openResultFile()"> <ArchiveIcon class="mr-2 h-4 w-4" /> {{ $t("Open result file") }} </TButtonPrimary>
+			<TButtonWhite @click="$root.resetApp()">
+				<RefreshIcon class="mr-2 h-4 w-4" /> {{ $t('Blend other spreadsheets') }}
+			</TButtonWhite>
+			<TButtonPrimary @click="openResultFile()"> <ArchiveIcon class="mr-2 h-4 w-4" /> {{ $t('Open result file') }} </TButtonPrimary>
 		</div>
 	</div>
 </template>

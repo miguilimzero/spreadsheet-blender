@@ -10,7 +10,7 @@
 
 		<ThemeSelector />
 
-		<TButtonWhite @click="$root.historyScreen = true"> <ClockIcon class="mr-2 h-4 w-4" /> {{ $t("History") }} </TButtonWhite>
+		<TButtonWhite @click="$root.historyScreen = true"> <ClockIcon class="mr-2 h-4 w-4" /> {{ $t('History') }} </TButtonWhite>
 	</TopRightButtonGroup>
 </template>
 
