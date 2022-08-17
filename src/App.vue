@@ -82,12 +82,12 @@ export default {
 				blendingMethod: 'keep',
 			}
 		},
-	
+
 		getSpreadsheetPrimaryColumn(spreadsheet) {
 			const data = this.spreadsheetData[spreadsheet][0]
 
 			for (const columnIndex in data) {
-				if(data[columnIndex] === data) {
+				if (data[columnIndex] === data) {
 					return columnIndex
 				}
 			}
@@ -97,7 +97,7 @@ export default {
 
 		tryToFindColumnUsingLevinsthein(primaryColumn, rows) {
 			for (const key in rows) {
-				if(new Levenshtein(primaryColumn, key).distance <= this.project.levinstheinStrength) {
+				if (new Levenshtein(primaryColumn, key).distance <= this.project.levinstheinStrength) {
 					return key
 				}
 			}
@@ -114,7 +114,7 @@ export default {
 				const data = this.spreadsheetData[spreadsheet][0]
 
 				for (const columnIndex in data) {
-					const column  = data[columnIndex]
+					const column = data[columnIndex]
 
 					if (columns.indexOf(column) === -1) {
 						columns.push(column)
@@ -138,13 +138,14 @@ export default {
 					const row = dataWithoutHeader[rowIndex]
 					const primaryColumn = row[primaryColumnIndex]
 
-					// Try literal compare 
-					if (rows[primaryColumn] === undefined) {
-						rows[primaryColumn] = row
-					} else if (levKey = this.tryToFindColumnUsingLevinsthein(primaryColumn, rows)) {
-						rows[levKey] = rows[levKey].concat(row.slice(1))
-					} else {
+					const levKey = this.tryToFindColumnUsingLevinsthein(primaryColumn, rows)
+
+					if (rows[primaryColumn] !== undefined) {
 						rows[primaryColumn] = rows[primaryColumn].concat(row.slice(1))
+					} else if (levKey) {
+						rows[levKey] = rows[levKey].concat(row.slice(1))
+					} else  {
+						rows[primaryColumn] = row
 					}
 				}
 			}
@@ -153,10 +154,7 @@ export default {
 		},
 
 		projectEstimatedSize() {
-			const size = this.$root.project
-				.spreadsheetList
-				.map(file => file.size)
-				.reduce((a,b) => a + b)
+			const size = this.$root.project.spreadsheetList.map(file => file.size).reduce((a, b) => a + b)
 
 			if (size > 1024 * 1024 * 1024) {
 				return `${(size / 1024 / 1024 / 1024).toFixed(2)} GB`
