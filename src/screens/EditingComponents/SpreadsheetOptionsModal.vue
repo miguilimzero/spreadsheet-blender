@@ -73,7 +73,7 @@
 											In this modal you can edit the options of how this table should be processed by the program.
 										</p>
 
-										<div class="flex items-center justify-between space-x-8">
+										<!-- <div class="flex items-center justify-between space-x-8">
 											<div class="flex-grow flex flex-col">
 												<h5 class="text-sm">First Column Is Header</h5>
 												<p class="text-sm">Select this option if the first column is column names instead of table values.</p>
@@ -82,7 +82,7 @@
 											<TToggle v-model="$parent.firstColumnIsHeader" />
 										</div>
 
-										<hr />
+										<hr /> -->
 
 										<div class="space-y-4">
 											<div>
@@ -95,13 +95,13 @@
 													<div class="flex-grow flex items-center space-x-2">
 														<p class="text-sm">{{ index + 1 }}.</p>
 														<h4 class="text-sm">{{ columnName }}</h4>
-														<TButtonIcon>
+														<!-- <TButtonIcon>
 															<PencilIcon class="w-4 h-4" />
-														</TButtonIcon>
+														</TButtonIcon> -->
 													</div>
 
 													<div class="flex-shrink flex flex-col">
-														<TToggle />
+														<TToggle :modelValue="false" />
 													</div>
 												</div>
 											</div>
@@ -119,7 +119,11 @@
 
 <script>
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
-import { PencilAltIcon, XIcon, PencilIcon } from '@heroicons/vue/outline'
+import { 
+	PencilAltIcon, 
+	XIcon,
+	// PencilIcon
+} from '@heroicons/vue/outline'
 
 import TButtonIcon from '@/components/tailwind-components/TButtonIcon'
 import TToggle from '@/components/tailwind-components/TToggle'
@@ -147,7 +151,7 @@ export default {
 		TButtonIcon,
 		TToggle,
 		XIcon,
-		PencilIcon,
+		// PencilIcon,
 	},
 
 	computed: {

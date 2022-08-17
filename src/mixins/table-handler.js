@@ -3,18 +3,46 @@ import fs from 'fs'
 
 export default {
 	methods: {
+
+		async addSpreadsheet(file) {
+			// Validate spreadsheet file
+			if (!this.isValidSpreadsheet(file)) {
+				return false
+			}
+
+			// Convert from File object to standard object
+			const simpleObject = {}
+
+			for (const key in file) {
+				simpleObject[key] = file[key]
+			}
+
+			// Block and wait for the file to be read
+			this.spreadsheetData[file.path] = await this.getSpreadsheetData(file)
+
+			// Finally add spreadsheet to project
+			this.project.spreadsheetList.push(simpleObject)
+
+			return true
+		},
+
+		removeSpreadsheet(path) {
+			this.project.spreadsheetList = this.project.spreadsheetList.filter(file => file.path !== path)
+		
+			delete this.spreadsheetData[path]
+		},
+
+		
 		isValidSpreadsheet(file) {
 			if (file.type === 'text/csv') {
 				return true
 			}
-			if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
-				return true
-			}
+			// if (file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+			// 	return true
+			// }
 
 			return false
 		},
-
-		formatAndConvertSpreadsheet(file) { },
 
 		async getSpreadsheetData(file) {
 			const data = await fs.readFileSync(file.path, 'utf8').toString()

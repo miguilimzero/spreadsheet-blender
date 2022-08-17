@@ -80,36 +80,18 @@ export default {
 				blendingMethod: 'keep',
 			}
 		},
+	
+		getSpreadsheetPrimaryColumn(spreadsheet) {
+			const data = this.spreadsheetData[spreadsheet][0]
 
-		async addSpreadsheet(file) {
-			// Validate spreadsheet file
-			if (!this.isValidSpreadsheet(file)) {
-				return false
+			for (const columnIndex in data) {
+				if(data[columnIndex] === data) {
+					return columnIndex
+				}
 			}
 
-			// Convert from File object to standard object
-			const simpleObject = {}
-
-			for (const key in file) {
-				simpleObject[key] = file[key]
-			}
-
-			// Block and wait for the file to be read
-			this.spreadsheetData[file.path] = await this.getSpreadsheetData(file)
-
-			// Finally add spreadsheet to project
-			this.project.spreadsheetList.push(simpleObject)
-
-			return true
-		},
-
-		removeSpreadsheet(path) {
-			this.project.spreadsheetList = this.project.spreadsheetList.filter(file => file.path !== path)
-		
-			delete this.spreadsheetData[path]
-		},
-
-		
+			return 0
+		}
 	},
 
 	computed: {
@@ -136,12 +118,13 @@ export default {
 
 			for (const spreadsheet in this.spreadsheetData) {
 				const data = this.spreadsheetData[spreadsheet]
+				const primaryColumnIndex = this.getSpreadsheetPrimaryColumn(spreadsheet)
 
 				const dataWithoutHeader = data.slice(1)
 
 				for (const rowIndex in dataWithoutHeader) {
 					const row = dataWithoutHeader[rowIndex]
-					const primaryColumn = row[0]
+					const primaryColumn = row[primaryColumnIndex]
 
 					if (rows[primaryColumn] === undefined) {
 						rows[primaryColumn] = row
