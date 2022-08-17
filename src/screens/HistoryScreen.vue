@@ -32,7 +32,7 @@
 <script>
 import { ExclamationIcon } from '@heroicons/vue/outline'
 
-import ProjectCard from '@/components/ProjectCard'
+import ProjectCard from './HistoryComponents/ProjectCard'
 
 export default {
 	components: {

@@ -21,7 +21,14 @@ export default {
 	computed: {
 		watchProjectChangeTrick() {
 			// Trick used to watch multiple data with single handler
-			return JSON.stringify([this.project.historyHash, this.project.name, this.project.spreadsheetList, this.project.resultFile])
+			return JSON.stringify([
+				this.project.historyHash, 
+				this.project.name, 
+				this.project.spreadsheetList, 
+				this.project.resultFile,
+				this.project.levinstheinStrength,
+				this.project.blendingMethod
+			])
 		},
 	},
 
@@ -36,13 +43,10 @@ export default {
 
 			const newHistoryHash = this.generateNewHistoryHash()
 
-			historyList.unshift({
-				historyHash: newHistoryHash,
-				name: project.name,
-				spreadsheetList: project.spreadsheetList,
-				resultFile: project.resultFile,
-				lastEditAt: new Date(),
-			})
+			project.historyHash = newHistoryHash
+			project.lastEditAt = new Date()
+
+			historyList.unshift(project)
 
 			this.saveRawHistory(historyList.slice(0, this.historySizeLimit - 1)) // Limit to X elements
 
@@ -52,13 +56,9 @@ export default {
 		updateProjectOnHistory(project) {
 			let historyList = this.getRawHistory()
 
-			historyList[this.findProjectArrayKey(project.historyHash)] = {
-				historyHash: project.historyHash,
-				name: project.name,
-				spreadsheetList: project.spreadsheetList,
-				resultFile: project.resultFile,
-				lastEditAt: new Date(),
-			}
+			project.lastEditAt = new Date()
+
+			historyList[this.findProjectArrayKey(project.historyHash)] = project
 
 			historyList.sort((a, b) => new Date(b.lastEditAt).getTime() - new Date(a.lastEditAt).getTime())
 

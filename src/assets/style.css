@@ -15,7 +15,7 @@
 	*,
 	::before,
 	::after {
-		@apply dark:border-gray-500;
+		@apply dark:border-gray-600;
 	}
 
 	h1,

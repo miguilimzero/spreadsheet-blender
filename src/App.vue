@@ -39,6 +39,7 @@ import BottomFooter from './components/BottomFooter'
 import HistoryMixin from './mixins/history'
 import DarkThemeMixin from './mixins/dark-theme'
 import LanguageMixin from './mixins/language'
+import TableHandlerMixin from './mixins/table-handler'
 
 export default {
 	name: 'App',
@@ -47,9 +48,10 @@ export default {
 		historyScreen: false,
 		aboutScreen: false,
 		project: {},
+		spreadsheetData: {},
 	}),
 
-	mixins: [HistoryMixin, DarkThemeMixin, LanguageMixin],
+	mixins: [HistoryMixin, DarkThemeMixin, LanguageMixin, TableHandlerMixin],
 
 	components: {
 		FirstSelectScreen,
@@ -73,27 +75,102 @@ export default {
 				name: '',
 				spreadsheetList: [],
 				resultFile: '',
+				primaryColumn: '',
+				levinstheinStrength: 1,
+				blendingMethod: 'keep',
 			}
 		},
 
-		addSpreadsheet(spreadsheetFile) {
-			const simpleObject = {}
-
-			for (const key in spreadsheetFile) {
-				simpleObject[key] = spreadsheetFile[key]
+		async addSpreadsheet(file) {
+			// Validate spreadsheet file
+			if (!this.isValidSpreadsheet(file)) {
+				return false
 			}
 
+			// Convert from File object to standard object
+			const simpleObject = {}
+
+			for (const key in file) {
+				simpleObject[key] = file[key]
+			}
+
+			// Block and wait for the file to be read
+			this.spreadsheetData[file.path] = await this.getSpreadsheetData(file)
+
+			// Finally add spreadsheet to project
 			this.project.spreadsheetList.push(simpleObject)
 
 			return true
 		},
 
 		removeSpreadsheet(path) {
-			this.project.spreadsheetList = this.project.spreadsheetList.filter(spreadsheetFile => spreadsheetFile.path !== path)
+			this.project.spreadsheetList = this.project.spreadsheetList.filter(file => file.path !== path)
+		
+			delete this.spreadsheetData[path]
 		},
 
-		finishProject() {
-			this.$root.project.resultFile = 'C:\\Users\\Rafaela\\Área de Trabalho\\Minhas Planinhas\\Resultado.csv'
+		
+	},
+
+	computed: {
+		projectColumns() {
+			const columns = []
+
+			for (const spreadsheet in this.spreadsheetData) {
+				const data = this.spreadsheetData[spreadsheet][0]
+
+				for (const columnIndex in data) {
+					const column  = data[columnIndex]
+
+					if (columns.indexOf(column) === -1) {
+						columns.push(column)
+					}
+				}
+			}
+
+			return columns
+		},
+
+		projectRows() {
+			const rows = {}
+
+			for (const spreadsheet in this.spreadsheetData) {
+				const data = this.spreadsheetData[spreadsheet]
+
+				const dataWithoutHeader = data.slice(1)
+
+				for (const rowIndex in dataWithoutHeader) {
+					const row = dataWithoutHeader[rowIndex]
+					const primaryColumn = row[0]
+
+					if (rows[primaryColumn] === undefined) {
+						rows[primaryColumn] = row
+					} else {
+						rows[primaryColumn] = rows[primaryColumn].concat(row.slice(1))
+					}
+				}
+			}
+
+			return Object.values(rows)
+		},
+
+		projectEstimatedSize() {
+			const size = this.$root.project
+				.spreadsheetList
+				.map(file => file.size)
+				.reduce((a,b) => a + b)
+
+			if (size > 1024 * 1024 * 1024) {
+				return `${(size / 1024 / 1024 / 1024).toFixed(2)} GB`
+			}
+			if (size > 1024 * 1024) {
+				return `${(size / 1024 / 1024).toFixed(2)} MB`
+			}
+			if (size > 1024) {
+				return `${(size / 1024).toFixed(2)} KB`
+			}
+
+			return `${size} bytes`
 		},
 	},
 }
