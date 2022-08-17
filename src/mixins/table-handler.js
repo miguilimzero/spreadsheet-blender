@@ -3,7 +3,6 @@ import fs from 'fs'
 
 export default {
 	methods: {
-
 		async addSpreadsheet(file) {
 			// Validate spreadsheet file
 			if (!this.isValidSpreadsheet(file)) {
@@ -32,7 +31,7 @@ export default {
 			delete this.spreadsheetData[path]
 		},
 
-		
+
 		isValidSpreadsheet(file) {
 			if (file.type === 'text/csv') {
 				return true
@@ -51,7 +50,15 @@ export default {
 		},
 
 		getProjectFinalCsv() {
-			const content = [].concat([this.projectColumns]).concat(this.projectRows)
+			const content = [].concat(
+				[this.projectColumns]
+			).concat(
+				this.projectRows.filter(
+					row => (this.blendingMethod === 'keep') 
+						? true 
+						: row.length === this.projectColumns.length
+				)
+			)
 
 			return content.map((row) => row.join(',')).join("\n")
 		},
