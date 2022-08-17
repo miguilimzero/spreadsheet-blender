@@ -41,6 +41,8 @@ import DarkThemeMixin from './mixins/dark-theme'
 import LanguageMixin from './mixins/language'
 import TableHandlerMixin from './mixins/table-handler'
 
+import Levenshtein from 'levenshtein'
+
 export default {
 	name: 'App',
 
@@ -76,7 +78,7 @@ export default {
 				spreadsheetList: [],
 				resultFile: '',
 				primaryColumn: '',
-				levinstheinStrength: 1,
+				levinstheinStrength: 0,
 				blendingMethod: 'keep',
 			}
 		},
@@ -91,7 +93,17 @@ export default {
 			}
 
 			return 0
-		}
+		},
+
+		tryToFindColumnUsingLevinsthein(primaryColumn, rows) {
+			for (const key in rows) {
+				if(new Levenshtein(primaryColumn, key).distance <= this.project.levinstheinStrength) {
+					return key
+				}
+			}
+
+			return null
+		},
 	},
 
 	computed: {
@@ -126,8 +138,11 @@ export default {
 					const row = dataWithoutHeader[rowIndex]
 					const primaryColumn = row[primaryColumnIndex]
 
+					// Try literal compare 
 					if (rows[primaryColumn] === undefined) {
 						rows[primaryColumn] = row
+					} else if (levKey = this.tryToFindColumnUsingLevinsthein(primaryColumn, rows)) {
+						rows[levKey] = rows[levKey].concat(row.slice(1))
 					} else {
 						rows[primaryColumn] = rows[primaryColumn].concat(row.slice(1))
 					}

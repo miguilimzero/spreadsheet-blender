@@ -48,7 +48,7 @@
 							<span>4</span>
 						</div>
 
-						<input type="range" min="1" max="4" v-model="$root.project.levinstheinStrength" class="w-full" />
+						<input type="range" min="0" max="3" v-model="$root.project.levinstheinStrength" class="w-full" />
 					</div>
 				</TCard>
 			</EditingSection>
