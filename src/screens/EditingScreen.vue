@@ -70,7 +70,7 @@
 						</div>
 					</div>
 					<div class="flex divide-x" v-for="row in $root.projectRows.slice(0, previewLimit)" :key="row">
-						<div class="flex flex-1 p-4" v-for="(value, index) in row" :key="value + index">
+						<div class="flex flex-1 p-4 text-gray-700 dark:text-white" v-for="(value, index) in row" :key="value + index">
 							{{ value }}
 						</div>
 					</div>
