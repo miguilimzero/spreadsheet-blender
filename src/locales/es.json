@@ -1,1 +1,26 @@
-{}
+{
+	"Back": "Regresar",
+	"History": "Histórico",
+	"Open project": "Proyecto abierto",
+	"Table Files": "Archivos de tabla",
+	"Open table": "Tabla abierta",
+	"Dark": "Oscuro",
+	"Light": "Claro",
+	"System": "Sistema",
+	"Cancel": "Cancelar",
+	"Finish": "Finalizar",
+	"Result File": "Archivo final",
+	"Untitled Project": "Proyecto Sin Nombre",
+	"Blend other spreadsheets": "Combinar otras hojas",
+	"Open result file": "Abrir archivo final",
+	"Add another spreadsheet": "Agregar otra hoja",
+	"All rights reserved.": "Todos los derechos reservados.",
+	"Merge Completed": "Fusión completa",
+	"No Projects Found": "No se encontró ningún proyecto",
+	"Congratulations you merged all selected spreadsheets. You can find the result in the path below:": "Enhorabuena, ha fusionado todas las hojas seleccionadas. Puede encontrar el resultado de la siguiente manera:",
+	"Congratulations you merged all selected spreadsheets. You may merge other spreadsheets using the button below:": "Enhorabuena, ha fusionado todas las hojas seleccionadas. Fusiona otras tablas usando el botón a continuación:",
+	"No result file generated yet!": "¡Aún no se ha generado ningún archivo final!",
+	"Select a new spreadsheet to start": "Seleccione una nueva hoja para comenzar",
+	"Apparently you haven't started any projects! Start a new project to see it listed on this page.": "¡Aparentemente no has iniciado ningún proyecto! Comience un nuevo proyecto para verlo en esta página.",
+	"History page is limited to the last {number} projects added or edited!": "¡La página de historial está limitada a los últimos {number} proyectos agregados o editados!"
+}

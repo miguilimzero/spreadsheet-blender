@@ -138,19 +138,32 @@ export default {
 					const row = dataWithoutHeader[rowIndex]
 					const primaryColumn = row[primaryColumnIndex]
 
-					const levKey = this.tryToFindColumnUsingLevinsthein(primaryColumn, rows)
-
 					if (rows[primaryColumn] !== undefined) {
 						rows[primaryColumn] = rows[primaryColumn].concat(row.slice(1))
-					} else if (levKey) {
-						rows[levKey] = rows[levKey].concat(row.slice(1))
-					} else  {
-						rows[primaryColumn] = row
+					} else {
+						const levKey = this.tryToFindColumnUsingLevinsthein(primaryColumn, rows)
+
+						if (levKey) {
+							if (rows[levKey] && rows[levKey].length < this.projectColumns.length) {
+								rows[levKey] = rows[levKey].concat(row.slice(1))
+							} else if (!rows[levKey]) {
+								rows[levKey] = row
+							}
+						} else {
+							rows[primaryColumn] = row
+						}
 					}
 				}
 			}
 
 			return Object.values(rows)
+				.map(row => row.filter(x => !!x))
+				.filter(row => row.length > 0)
+				.filter(
+					row => (this.project.blendingMethod === 'keep') 
+						? true 
+						: row.length === this.projectColumns.length
+				)
 		},
 
 		projectEstimatedSize() {

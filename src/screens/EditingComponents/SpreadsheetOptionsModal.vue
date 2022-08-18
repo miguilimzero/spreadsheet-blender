@@ -101,7 +101,7 @@
 													</div>
 
 													<div class="flex-shrink flex flex-col">
-														<TToggle :modelValue="false" />
+														<!-- <TToggle :modelValue="false" /> -->
 													</div>
 												</div>
 											</div>
@@ -126,7 +126,7 @@ import {
 } from '@heroicons/vue/outline'
 
 import TButtonIcon from '@/components/tailwind-components/TButtonIcon'
-import TToggle from '@/components/tailwind-components/TToggle'
+// import TToggle from '@/components/tailwind-components/TToggle'
 
 export default {
     props: {
@@ -149,7 +149,7 @@ export default {
 		TransitionRoot,
 		PencilAltIcon,
 		TButtonIcon,
-		TToggle,
+		// TToggle,
 		XIcon,
 		// PencilIcon,
 	},

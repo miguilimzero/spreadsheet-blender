@@ -45,7 +45,7 @@
 						<div class="flex space-x-1 text-base font-medium text-gray-600 dark:text-gray-200">
 							<span>{{ $root.project.levinstheinStrength }}</span>
 							<span>/</span>
-							<span>4</span>
+							<span>3</span>
 						</div>
 
 						<input type="range" min="0" max="3" v-model="$root.project.levinstheinStrength" class="w-full" />
@@ -54,18 +54,30 @@
 			</EditingSection>
 
 			<EditingSection title="Schema Preview">
+				<TCard class="mb-5">
+					<div class="flex p-4 space-x-4 items-center">
+						<p class="break-normal">Preview rows:</p>
+						<TInput v-model="previewLimit" type="number" class="w-full" />
+					</div>
+				</TCard>
+
 				<TCard class="w-full divide-y">
-					<div class="flex divide-x" v-for="i in [0, 1, 2, 3]" :key="i">
-						<template v-if="i === 0">
-							<div class="flex flex-1 px-4 py-2"  v-for="column in $root.projectColumns" :key="column">
-								<p class="font-medium">
-									{{ column }}
-								</p>
-							</div>
-						</template>
-						<template v-else>
-							<div class="flex flex-1 p-4" v-for="i in $root.projectColumns.length" :key="i"></div>
-						</template>
+					<div class="flex divide-x">
+						<div class="flex flex-1 px-4 py-2" v-for="column in $root.projectColumns" :key="column">
+							<p class="font-medium">
+								{{ column }}
+							</p>
+						</div>
+					</div>
+					<div class="flex divide-x" v-for="row in $root.projectRows.slice(0, previewLimit)" :key="row">
+						<div class="flex flex-1 p-4" v-for="(value, index) in row" :key="value + index">
+							{{ value }}
+						</div>
+					</div>
+					<div class="flex divide-x" v-if="$root.projectRows.length > previewLimit">
+						<div class="flex flex-1 p-4" v-for="column in $root.projectColumns" :key="column">
+							<p class="font-medium">...</p>
+						</div>
 					</div>
 				</TCard>
 			</EditingSection>
@@ -102,6 +114,7 @@ import BlendingMethodSelect from './EditingComponents/BlendingMethodSelect'
 
 import TCard from '@/components/tailwind-components/TCard'
 import TBadge from '@/components/tailwind-components/TBadge'
+import TInput from '@/components/tailwind-components/TInput'
 import TSelect from '@/components/tailwind-components/TSelect'
 
 export default {
@@ -109,6 +122,7 @@ export default {
 		TCard,
 		TBadge,
 		TSelect,
+		TInput,
 		InvalidFileError,
 		SpreadsheetCard,
 		SelectSpreadsheetButton,
@@ -118,6 +132,7 @@ export default {
 
 	data: () => ({
 		editingTitle: false,
+		previewLimit: 3,
 	}),
 
 	methods: {

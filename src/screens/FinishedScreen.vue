@@ -10,44 +10,48 @@
 			<div class="space-y-4">
 				<h1 class="text-center">{{ $t('Merge Completed') }}</h1>
 				<p class="text-center">
-					{{ $t('Congratulations you merged all selected spreadsheets. You can find the result in the path below:') }}
+					<!-- {{ $t('Congratulations you merged all selected spreadsheets. You can find the result in the path below:') }} -->
+					{{ $t('Congratulations you merged all selected spreadsheets. You may merge other spreadsheets using the button below:') }}
 				</p>
 			</div>
 
-			<div class="flex justify-center">
+			<!-- <div class="flex justify-center">
 				<TBadge class="cursor-pointer" @click="openFolder()"> {{ $root.project.resultFile }} </TBadge>
-			</div>
+			</div> -->
 
 			<div class="flex justify-center space-x-2">
 				<TButtonWhite @click="$root.resetApp()">
 					<RefreshIcon class="mr-2 h-4 w-4" /> {{ $t('Blend other spreadsheets') }}
 				</TButtonWhite>
-				<TButtonPrimary @click="openResultFile()">
+				<!-- <TButtonPrimary @click="openResultFile()">
 					<ArchiveIcon class="mr-2 h-4 w-4" /> {{ $t('Open result file') }}
-				</TButtonPrimary>
+				</TButtonPrimary> -->
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import { RefreshIcon, ArchiveIcon } from '@heroicons/vue/solid'
+import {
+	RefreshIcon,
+	//  ArchiveIcon
+} from '@heroicons/vue/solid'
 import { CheckIcon } from '@heroicons/vue/outline'
 
-import TBadge from '@/components/tailwind-components/TBadge'
-import TButtonPrimary from '@/components/tailwind-components/TButtonPrimary'
+// import TBadge from '@/components/tailwind-components/TBadge'
+// import TButtonPrimary from '@/components/tailwind-components/TButtonPrimary'
 import TButtonWhite from '@/components/tailwind-components/TButtonWhite'
 
 import { shell } from 'electron'
 
 export default {
 	components: {
-		TBadge,
-		TButtonPrimary,
+		// TBadge,
+		// TButtonPrimary,
 		TButtonWhite,
 		RefreshIcon,
 		CheckIcon,
-		ArchiveIcon,
+		// ArchiveIcon,
 	},
 
 	methods: {

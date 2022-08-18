@@ -50,15 +50,7 @@ export default {
 		},
 
 		getProjectFinalCsv() {
-			const content = [].concat(
-				[this.projectColumns]
-			).concat(
-				this.projectRows.filter(
-					row => (this.blendingMethod === 'keep') 
-						? true 
-						: row.length === this.projectColumns.length
-				)
-			)
+			const content = [].concat([this.projectColumns]).concat(this.projectRows)
 
 			return content.map((row) => row.join(',')).join("\n")
 		},
@@ -70,7 +62,8 @@ export default {
 			element.download = "Result.csv";
 			element.click();
 
-			setTimeout(() => this.project.resultFile = '/home/miguel/Área de trabalho/Result.csv', 4000)
+			this.project.resultFile = 'XXX'
+			// setTimeout(() => this.project.resultFile = '/home/miguel/Área de trabalho/Result.csv', 4000)
 		},
 	},
 }
