@@ -25,11 +25,7 @@ foi utilizado o [Pack de bandeiras arredondadas](https://www.flaticon.com/packs/
 Para fazer setup do projeto primeiro faça `git clone` do repositório e instale as dependências NPM.
 
 ```bash
-git clone https://github.com/srdante/aic-trabalho
-```
-
-```bash
-cd aic-trabalho
+cd spreadsheet-blender
 npm install
 ```
 
